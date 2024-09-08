@@ -4,7 +4,6 @@ import React from 'react'
 const Services = (props) => {
     const {staticData, name} = props
     const gridSpacing = staticData.length
-    console.log("services called");
   return (
     <div className={`bg-[#002665] mx-[120px] rounded-[10px] px-[36px] py-[24px] ${gridSpacing < 7 ? 'mt-[40px]' : 'mt-[20px]' }`}>
         <h2 className='text-[#FF6D00] font-open-sans text-[32px] font-bold leading-none'>{name}</h2>
