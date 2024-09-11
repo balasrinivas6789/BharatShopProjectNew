@@ -9,13 +9,15 @@ import { useState } from "react";
 import Footer from "./Components/Footer/Footer";
 import Services from "./Services/Services";
 import FlightBookingReview from "./Components/FlightBookingReview";
+import FlightTicketsDateWise from "./Components/Flight/FlightTicketsDateWise";
+import FlightTicketDateWiseNew from "./Components/Flight/FlightTicketDateWiseNew";
  
 function App() {
   const [sidebarToggle, setSidebarToggle] = useState(true);
 
   return (
     <div className="wholeBackground ">
-      <Header
+       <Header
         sidebarToggle={sidebarToggle}
         setSidebarToggle={setSidebarToggle}
       />
@@ -40,13 +42,18 @@ function App() {
             name="Recharge And Bill Payments"
           />
           <Services staticData={utilityServices} name="Utility Services" />
+          
 
           {/* <FlightBookingReview /> */}
           <Footer />
+          <FlightTicketDateWiseNew/>
         </div>
       </div>
+     
     </div>
   );
 }
 
 export default App;
+
+
