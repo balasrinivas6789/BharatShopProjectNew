@@ -9,7 +9,7 @@ import { useState } from "react";
 import Footer from "./Components/Footer/Footer";
 import Services from "./Services/Services";
 import FlightBookingReview from "./Components/FlightBookingReview";
-import FlightTicketsDateWise from "./Components/Flight/FlightTicketsDateWise";
+
 import FlightTicketDateWiseNew from "./Components/Flight/FlightTicketDateWiseNew";
  
 function App() {
