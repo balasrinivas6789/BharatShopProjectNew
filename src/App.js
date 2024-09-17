@@ -11,10 +11,16 @@ import Services from "./Services/Services";
 import FlightBookingReview from "./Components/FlightBookingReview";
 import OnboardUser from "./OnboardUser";
 import FlightTicketDateWiseNew from "./Components/Flight/FlightTicketDateWiseNew";
+<<<<<<< HEAD
 import CreateAgentAccount from "./Components/CreateAgentScreen/CreateAgentAccount";
 import AepsFrom from "./Components/AepsKyc/AepsFrom";
 import BusSearch from "./Components/Bus/BusSearch";
 
+=======
+import Gallery from "./Components/CharDhamYatra/Gallery";
+import HotelCard from "./Components/Hotels/HotelCard";
+ 
+>>>>>>> 6015601c82908a7b39b82361ccdf07b06238f913
 function App() {
   const [sidebarToggle, setSidebarToggle] = useState(true);
 
@@ -59,6 +65,12 @@ function App() {
         </div>
       </div>
     </div>
+    // <div className="bg-[#17213c]">
+    //   <Gallery />
+    // </div>
+    // <div>
+    //   <HotelCard />
+    // </div>
   );
 }
 
