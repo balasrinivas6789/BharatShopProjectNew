@@ -11,6 +11,8 @@ import Services from "./Services/Services";
 import FlightBookingReview from "./Components/FlightBookingReview";
 
 import FlightTicketDateWiseNew from "./Components/Flight/FlightTicketDateWiseNew";
+import Gallery from "./Components/CharDhamYatra/Gallery";
+import HotelCard from "./Components/Hotels/HotelCard";
  
 function App() {
   const [sidebarToggle, setSidebarToggle] = useState(true);
@@ -51,6 +53,12 @@ function App() {
       </div>
      
     </div>
+    // <div className="bg-[#17213c]">
+    //   <Gallery />
+    // </div>
+    // <div>
+    //   <HotelCard />
+    // </div>
   );
 }
 
