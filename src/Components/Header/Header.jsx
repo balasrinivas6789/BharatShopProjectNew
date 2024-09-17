@@ -9,7 +9,7 @@ import { FaRegBell } from "react-icons/fa";
 
 const Header = ({ sidebarToggle, setSidebarToggle }) => {
   return (
-    <header className="sticky top-0 flex items-center justify-between p-4 pt-1 pb-1 bg-white shadow-md">
+    <header className="sticky top-0 flex items-center justify-between p-3 pt-1 pb-1 bg-white shadow-md">
       <div className="flex items-center  space-x-2">
         <button
           className="p-2 text-black-600"
@@ -37,7 +37,7 @@ const Header = ({ sidebarToggle, setSidebarToggle }) => {
           <img
             src={bharatshoplogo}
             alt="bharatshoplogo"
-            className="w-[128px] h-[91px] flex-shrink-0"
+            className="w-[128px] h-[81px] flex-shrink-0"
           />
         </div>
 {/* 

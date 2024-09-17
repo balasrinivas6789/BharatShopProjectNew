@@ -23,6 +23,32 @@ import last from "../../images/SideBarIcons/last.svg"
 
 const accordions = [
   {
+    id: 1,
+    title: "Recharges/Payments",
+    icon: Group,
+    items: [
+      "Mobile Recharge",
+      "View Commission",
+      "Set Commission",
+      "Reports",
+      "Recharge Incentives",
+      "Recharge Incentives Log",
+    ],
+  },
+  {
+    id: 2,
+    title: "Recharges/Payments",
+    icon : mask,
+    items: [
+      "Bill Payments",
+      "View Commission",
+      "Set Commission",
+      "Reports",
+      "Recharge Incentives",
+      "Recharge Incentives Log",
+    ],
+  },
+  {
     id: 3,
     title: "Flights",
     icon : third,
@@ -61,23 +87,6 @@ const accordions = [
       "Cancellation charges ",
     ],
   },
-
-
-  {
-    id: 27,
-    title: "Cab",
-    icon: Group,
-    items: [
-      "Make Booking",
-      "Transaction log",
-
-      "Reports",
-      "markup commission",
-      "Cancellation charges ",
-    ],
-  },
-
-
   {
     id: 6,
     title: "Tour packages",
@@ -92,33 +101,18 @@ const accordions = [
     ],
   },
   {
-    id: 1,
-    title: "Recharges",
-    icon: Group,
+    id: 7,
+    title: "Tour packages",
+    icon : seven,
     items: [
-      "Mobile Recharge",
-      "View Commission",
-      "Set Commission",
+      "Make Booking",
+      "Transaction log",
+
       "Reports",
-      "Recharge Incentives",
-      "Recharge Incentives Log",
+      "markup commission",
+      "Cancellation charges ",
     ],
   },
-  {
-    id: 2,
-    title: "Bill payments",
-    icon : mask,
-    items: [
-      "Bill Payments",
-      "View Commission",
-      "Set Commission",
-      "Reports",
-      "Recharge Incentives",
-      "Recharge Incentives Log",
-    ],
-  },
-
-
   {
     id: 8,
     title: "APES",

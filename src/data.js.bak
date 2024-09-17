@@ -149,6 +149,7 @@ export const bankingServices = [
     name: "Micro Atm",
     imageStyling: "h-[86px]",
   },
+  
 ];
 
 export const utilityServices = [

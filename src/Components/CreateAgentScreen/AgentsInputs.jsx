@@ -6,7 +6,7 @@ const AgentsInputs = ({ label, name, value, onChange, type = 'text', options = [
 
   return (
     <div className="flex flex-col w-[265px]  ml-[9%] mr-[2%] mb-4"> {/* Ensure consistent margin-bottom */}
-      <label htmlFor={name} className="text-black font-[400] text-[16px] leading-normal font-open-sans mb-[10px]">
+      <label htmlFor={name} className="text-black font-[400] text-[16px] leading-normal mb-[10px]">
         {label}
       </label>
       {inputType === 'input' && (
