@@ -1,0 +1,18 @@
+/* Ensure the custom class has higher specificity */
+.custom-carousel .control-dots {
+    bottom: -35px !important; /* Margin between images and dots */
+}
+
+.custom-carousel .control-dots .dot {
+    background: #000; /* Set the color of the dots */
+    opacity: 0.5; /* Set the opacity of the dots */
+    transition: background 0.3s; /* Add a transition effect */
+}
+
+.custom-carousel .control-dots .dot.selected {
+    background: #fff; /* Color for the selected dot */
+    opacity: 1; /* Full opacity for selected dot */
+}
+.carousel.carousel-slider{
+    overflow: visible !important;
+}
