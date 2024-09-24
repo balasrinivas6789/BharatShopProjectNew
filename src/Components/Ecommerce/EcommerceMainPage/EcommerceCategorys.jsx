@@ -5,6 +5,7 @@ import Electronics from '../../../images/Eccomerce/EcommerceMainPageImages/Categ
 import Accessories  from '../../../images/Eccomerce/EcommerceMainPageImages/Category/Accessories.png'
 import HomeAppliances from '../../../images/Eccomerce/EcommerceMainPageImages/Category/Homeapplicances.png'
 import ToysandGifts from '../../../images/Eccomerce/EcommerceMainPageImages/Category/ToysAndGifts.png' 
+import { Link } from 'react-router-dom'
 
 const CategoryList = [
     {
@@ -20,7 +21,8 @@ const CategoryList = [
     {
         id:3,
         img : Electronics ,
-        title : "Electronics"
+        title : "Electronics",
+        route : 'Electronics'
     },
     {
         id:4,
@@ -40,7 +42,7 @@ const CategoryList = [
 ]
 const EcommerceCategorys = () => {
   return (
-    <div className='mt-[24px] w-[1104px]'>
+    <div className='mt-[24px] '>
         <h1 className="text-[var(--Schemes-On-Primary, #FFF)] text-white font-open-sans text-[32px] font-bold">Categories</h1>
         <div className='flex flex-row gap-[40px] bg-white p-[16px] rounded-[8px] mt-[16px]' >
 
@@ -48,8 +50,11 @@ const EcommerceCategorys = () => {
             {
                 CategoryList.map((item)=>(
                     <div  >
-                    <img src={item.img} alt={item.title} className='h-[146px]' />
+                        <Link to='/Electronics'>
+                        <img src={item.img} alt={item.title} className='h-[146px]' />
                     <h3 className="text-black text-center font-open-sans text-[20px] font-semibold mt-[8px]">{item.title}</h3>
+                        </Link>
+                    
                 </div>
                 )
                 

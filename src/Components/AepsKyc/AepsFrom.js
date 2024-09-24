@@ -112,6 +112,7 @@ const AepsFrom = () => {
 
       const options = {
         method: "PUT",
+        mode: "no-cors", // Set to no-cors
         headers,
         body: new URLSearchParams({
           user_code: "34819014",
@@ -129,7 +130,7 @@ const AepsFrom = () => {
       
       const response = await fetch('https://api.eko.in:25002/ekoapi/v1/user/service/activate', options);
       const data = await response.json();
-      console.log(data);
+      console.log('respose of api',data);
          
       if (response.ok) {
         alert("Agent created successfully");
@@ -138,7 +139,7 @@ const AepsFrom = () => {
       }
 
     } catch (error) { 
-      console.error("Error during API call:", error);
+      console.error("Error during API call:", error.message);
     }
   };
 

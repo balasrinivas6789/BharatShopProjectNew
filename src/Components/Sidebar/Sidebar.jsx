@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import accordions from "./SidebarData";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ sidebarToggle }) => {
   const [expanded, setExpanded] = useState(null);
+
+  const navigate = useNavigate();
 
   const toggleAccordion = (id) => {
     setExpanded(expanded === id ? null : id);
@@ -17,6 +20,7 @@ const Sidebar = ({ sidebarToggle }) => {
           <h2 id="accordion-collapse-heading-0">
             <button
               type="button"
+              onClick={() => navigate('/')}
               className="w-full p-3 font-medium text-white rounded bg-blue-300 flex justify-normal"
             >
               <svg
@@ -88,8 +92,9 @@ const Sidebar = ({ sidebarToggle }) => {
                     <li
                       key={index}
                       className="hover:text-orange-500 cursor-pointer"
+                      onClick={() => navigate(`/${item?.route}`)  }
                     >
-                      {item}
+                      {item?.name}
                     </li>
                   ))}
                 </ul>

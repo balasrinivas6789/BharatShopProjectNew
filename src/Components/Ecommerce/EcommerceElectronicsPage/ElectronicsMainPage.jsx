@@ -5,6 +5,8 @@ import CartIcon from '../../../images/Eccomerce/EcommerceMainPageImages/Cart.png
 import WishList from '../../../images/Eccomerce/EcommerceMainPageImages/Heart.png';
 import ElectronicsContent from './ElectronicsContent';
 import ElectronicsProducts from './ElectronicsProducts';
+import EcommerceWishlist from '../EcommerceWishlist/EcommerceWishlist';
+import { Link } from 'react-router-dom';
 
 
 const ElectronicsMainPage = () => {
@@ -31,18 +33,24 @@ const ElectronicsMainPage = () => {
             <h1 className="text-white font-semibold text-[14px]">Cart</h1>
           </div>
           <div className="flex justify-center items-center gap-[15px]">
-            <img
+          <img
               src={WishList}
               alt="Wishlist"
               className="w-[40px] h-[40px] p-[8px] rounded-[24px] bg-white"
             />
+            <Link to='/wishlist'>
+            
             <h1 className="text-white font-semibold text-[14px]">Wishlist</h1>
+            
+            </Link>
+            
           </div>
         </div>
       </div>
       <ElectronicsBanners/>
       <ElectronicsContent/>
       <ElectronicsProducts/>
+      
 
 
 

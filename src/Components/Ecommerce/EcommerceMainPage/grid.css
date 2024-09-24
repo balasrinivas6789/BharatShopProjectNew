@@ -1,5 +1,5 @@
 .main_grid{
-    width: 1104px;
+    width: 100%;
     display: grid;
     grid-template-columns: 15.555% 15.555% 15.555% 15.555% 15.555% 15.555%;
     overflow: hidden;

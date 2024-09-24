@@ -24,8 +24,8 @@ const responsive = {
 
 const EcommerceCards = ({ deviceType, name, staticData }) => {
   return (
-    <div>
-      <div className="mt-[24px] w-[1104px] bg-[#1749a0] p-[24px] relative">
+    <div className='w-[100%]'>
+      <div className="mt-[24px] w-[100%] bg-[#1749a0] p-[24px] relative">
         <h2 className="text-white pb-[11px] pt-[24px] font-open-sans text-[32px] font-bold leading-normal">{name}</h2>
         <Carousel
           swipeable={false}
