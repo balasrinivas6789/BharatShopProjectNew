@@ -95,6 +95,7 @@ import EcommerceWishlist from "./Components/Ecommerce/EcommerceWishlist/Ecommerc
 import CreateAgentAccount from "./Components/CreateAgentScreen/CreateAgentAccount";
 import AepsFromInputs from "./Components/AepsKyc/AepsFromInputs";
 import AepsFrom from "./Components/AepsKyc/AepsFrom";
+import EcommerceCart from "./Components/Ecommerce/EcommerceCart/EcommerceCart";
 
 function App() {
   const [sidebarToggle, setSidebarToggle] = useState(true);
@@ -127,6 +128,7 @@ function App() {
             <Route path="/EcommerceMainPage" element={<EcommerceMainPage />}>  </Route>
             <Route path="/Electronics" element={<ElectronicsMainPage/>}></Route>
             <Route path="/wishlist" element={<EcommerceWishlist/>}></Route>
+            <Route path="/cart" element={<EcommerceCart/>}></Route>
          </Routes>
         </div>
       </div>

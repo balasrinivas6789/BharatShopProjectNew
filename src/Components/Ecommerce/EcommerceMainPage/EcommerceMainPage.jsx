@@ -29,7 +29,10 @@ const EcommerceMainPage = () => {
               alt="Cart"
               className="w-[40px] h-[40px] p-[8px] rounded-[24px] bg-white"
             />
+            <Link to='/cart'>
             <h1 className="text-white font-semibold text-[14px]">Cart</h1>
+            </Link>
+            
           </div>
           <div className="flex justify-center items-center gap-[15px]">
             <img
