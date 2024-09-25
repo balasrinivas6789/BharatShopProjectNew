@@ -9,7 +9,9 @@ import { FaRegBell } from "react-icons/fa";
 
 const Header = ({ sidebarToggle, setSidebarToggle }) => {
   return (
+
     <header className="sticky top-0 z-30 flex items-center justify-between p-3 pt-1 pb-1 bg-white shadow-md">
+
       <div className="flex items-center  space-x-2">
         <button
           className="p-2 text-black-600"

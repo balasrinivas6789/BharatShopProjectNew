@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./Sidebar.css";
-import accordions from "./SidebarData";
+import "./Sidebar.css"; // Ensure you create this CSS file
+import accordions from "./SidebarData"; // Ensure you have this data file
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ sidebarToggle }) => {
   const [expanded, setExpanded] = useState(null);
-
   const navigate = useNavigate();
 
   const toggleAccordion = (id) => {
@@ -13,8 +12,7 @@ const Sidebar = ({ sidebarToggle }) => {
   };
 
   return (
-    <div className="mb-2 bg-[#1749a0] fixed  overflow-y-auto scrollbar-hidden">
-
+    <div className="sidebar fixed scrollbar-hidden overflow-y-auto">
       <div className="pb-[7rem]">
         <div className="m-3">
           <h2 id="accordion-collapse-heading-0">
@@ -23,6 +21,7 @@ const Sidebar = ({ sidebarToggle }) => {
               onClick={() => navigate('/')}
               className="w-full p-3 font-medium text-white rounded bg-blue-300 flex justify-normal"
             >
+              {/* SVG Icon */}
               <svg
                 width="24"
                 height="24"
@@ -38,7 +37,6 @@ const Sidebar = ({ sidebarToggle }) => {
                   />
                 </g>
               </svg>
-
               <span className="ms-[55px]">Dash Board</span>
             </button>
           </h2>
@@ -48,23 +46,15 @@ const Sidebar = ({ sidebarToggle }) => {
             <h2 id={`accordion-collapse-heading-${accordion.id}`}>
               <button
                 type="button"
-                className={`flex items-center justify-between w-full p-3 font-medium text-white rounded gap-3 ${expanded === accordion.id ? "bg-[#011f51]" : "bg-blue-300"
-                  } transition-all duration-1000`}
-                data-accordion-target={`#accordion-collapse-body-${accordion.id}`}
+                className={`flex items-center justify-between w-full p-3 font-medium text-white rounded gap-3 ${expanded === accordion.id ? "bg-[#011f51]" : "bg-blue-300"}`}
+                onClick={() => toggleAccordion(accordion.id)}
                 aria-expanded={expanded === accordion.id}
                 aria-controls={`accordion-collapse-body-${accordion.id}`}
-                onClick={() => toggleAccordion(accordion.id)}
               >
-                <img
-                  className="text-orange-500"
-                  src={accordion?.icon}
-                  alt="icon"
-                />
+                <img className="text-orange-500" src={accordion.icon} alt="icon" />
                 <span>{accordion.title}</span>
                 <svg
-                  data-accordion-icon
-                  className={`w-3 h-3 shrink-0 transition-transform duration-1000 ${expanded === accordion.id ? "rotate-45" : "rotate-0"
-                    }`}
+                  className={`w-3 h-3 shrink-0 transition-transform duration-1000 ${expanded === accordion.id ? "rotate-45" : "rotate-0"}`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -82,19 +72,17 @@ const Sidebar = ({ sidebarToggle }) => {
             </h2>
             <div
               id={`accordion-collapse-body-${accordion.id}`}
-              className={`overflow-hidden transition-all duration-1000 ${expanded === accordion.id ? "max-h-[500px]" : "max-h-0"
-                }`}
-              style={{ transition: "max-height 1s ease-out" }}
+              className={`overflow-hidden transition-all duration-1000 ${expanded === accordion.id ? "max-h-[500px]" : "max-h-0"}`}
             >
-              <div className="p-3  bg-[#011f51] rounded-b-lg dark:border-gray-700 dark:bg-[#011f51]">
+              <div className="p-3 bg-[#011f51] rounded-b-lg">
                 <ul className="text-white space-y-2">
                   {accordion.items.map((item, index) => (
                     <li
                       key={index}
                       className="hover:text-orange-500 cursor-pointer"
-                      onClick={() => navigate(`/${item?.route}`)  }
+                      onClick={() => navigate(`/${item.route}`)}
                     >
-                      {item?.name}
+                      {item.name}
                     </li>
                   ))}
                 </ul>
@@ -102,7 +90,6 @@ const Sidebar = ({ sidebarToggle }) => {
             </div>
           </div>
         ))}
-
       </div>
     </div>
   );

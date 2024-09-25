@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ElectronicsData } from './ElectronicsData';
 import { toggleWishlist } from '../ReduxToolkit/wishlistSlice'; 
 
+import { toggleCartlist } from "../ReduxToolkit/cartSlice";
+
 import ReactPaginate from 'react-paginate';
 
 const ITEMS_PER_PAGE = 9;
@@ -23,9 +25,14 @@ const ElectronicsProducts = () => {
     dispatch(toggleWishlist(index));
   };
 
+  const toggleCartlistHandler = (cartItemDetail) =>{
+    dispatch(toggleCartlist(cartItemDetail))
+  }
+
+
   return (
     <div className="container mt-[53px]">
-      
+
 
       <div className="grid grid-cols-3 gap-[20px] py-8 px-[29px] rounded-[10px] w-[821px] bg-[#125fa7] mx-auto">
         {currentItems.map((item, index) => {
@@ -64,7 +71,9 @@ const ElectronicsProducts = () => {
                 </div>
 
                 <div className="buttons-container flex w-[222px] justify-between items-center pb-[12px] mt-[20px]">
-                  <button className="text-[white] rounded-md bg-[#3986CF] flex h-[44px] p-2.5 justify-center items-center gap-2.5 text-[var(--Schemes-On-Primary)] font-sans text-sm font-semibold leading-normal">
+
+                  <button onClick={() => toggleCartlistHandler(index)} className="text-[white] rounded-md bg-[#3986CF] flex h-[44px] p-2.5 justify-center items-center gap-2.5 text-[var(--Schemes-On-Primary)] font-sans text-sm font-semibold leading-normal">
+
                     Add to cart
                   </button>
                   <button className="text-[white] rounded-md bg-[#3986CF] flex h-[44px] p-2.5 justify-center items-center gap-2.5 text-[var(--Schemes-On-Primary)] font-sans text-sm font-semibold leading-normal">

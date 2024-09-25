@@ -1,3 +1,4 @@
+
 import React from "react";
 import Footer from "../Components/Footer/Footer";
 import Services from "../Services/Services";
@@ -11,6 +12,7 @@ import SearchBar from "../Components/TravelSerachEngine/SearchBar";
 const AgentDashBoard = () => {
   return (
     <div>
+
       <div className="ms-[50px] pb-[5px] pt-[30px]">
         <SearchBar />
       </div>

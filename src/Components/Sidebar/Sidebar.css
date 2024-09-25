@@ -8,3 +8,17 @@
     scrollbar-width: none;  
   }
 
+  .sidebar {
+    position: fixed; /* Keep sidebar fixed */
+ 
+    height: 100vh; /* Full viewport height */
+   
+    background-color: #1749a0; /* Background color of the sidebar */
+    overflow-y: auto; /* Enable vertical scrolling */
+   
+  }
+  
+  .sidebar-content {
+    padding-bottom: 7rem; /* Space at the bottom, adjust as needed */
+  }
+  

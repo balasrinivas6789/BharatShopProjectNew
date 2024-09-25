@@ -22,6 +22,7 @@ import twentyone from "../../images/SideBarIcons/twenty two.svg";
 import last from "../../images/SideBarIcons/last.svg";
 
 const accordions = [
+
  {
   id: 3,
   title: "Flights",
@@ -228,12 +229,15 @@ const accordions = [
  },
 
  {
+
   id: 17,
   title: "E-commerce",
   icon : seventeen,
   items: [
     { name: "Make Bookings", route: "EcommerceMainPage" },
-    { name: "Category", route: "" },
+
+    { name: "Category", route: "category" },
+
     { name: "Sub Category" },  
     { name: "Add Product" },
     { name: "Description" },
@@ -245,6 +249,7 @@ const accordions = [
     { name: "Markup/Commission" },
   ],
 },
+
  {
   id: 18,
   title: "Pan Card",

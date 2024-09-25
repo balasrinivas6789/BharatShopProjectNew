@@ -5,11 +5,15 @@ import { statesAndDistricts } from "../CreateAgentScreen/StatesDistrictsData";
 
 const AepsFrom = () => {
   const inputsConfig = [
+
     {
       name: "agentName",
       label: "Agent Name (As Per Aadhar/Pan Card)",
       type: "text",
     },
+
+    { name: "agentName", label: "Agent Name (As Per Aadhar/Pan Card)", type: "text" },
+
     { name: "mobileNo", label: "Mobile No", type: "number" },
     { name: "emailid", label: "Email ID", type: "email" },
     { name: "aadhar_number", label: "Aadhar Number", type: "text" },
@@ -24,12 +28,16 @@ const AepsFrom = () => {
     { name: "proofLine", label: "Line", type: "text" },
     { name: "proofCity", label: "City", type: "text" },
     { name: "proofPinCode", label: "Pin Code", type: "text" },
+
     {
       name: "proofState",
       options: Object.keys(statesAndDistricts),
       label: "State",
       type: "dropdown",
     },
+
+    { name: "proofState", options: Object.keys(statesAndDistricts), label: "State", type: "dropdown" },
+
   ];
 
   const inputsConfigBiometric = [
@@ -41,12 +49,16 @@ const AepsFrom = () => {
     { name: "officeLine", label: "Line", type: "text" },
     { name: "officeCity", label: "City", type: "text" },
     { name: "officePinCode", label: "Pin Code", type: "text" },
+
     {
       name: "officeState",
       options: Object.keys(statesAndDistricts),
       label: "State",
       type: "dropdown",
     },
+
+    { name: "officeState", options: Object.keys(statesAndDistricts), label: "State", type: "dropdown" },
+
   ];
 
   const [pan_card, setPan_card] = useState(null);
@@ -69,6 +81,10 @@ const AepsFrom = () => {
     officeState: "",
     officePinCode: "",
 
+    pan_card: null,
+    aadhar_front: null,
+    aadhar_back: null,
+
     address_as_per_proof: "",
   });
 
@@ -77,9 +93,10 @@ const AepsFrom = () => {
 
     setFormValues((prevValues) => ({
       ...prevValues,
-      [name]: value,
+      [name]: type === "file" ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fphotos%2Ftree-sunset-clouds-sky-silhouette-736885%2F&psig=AOvVaw0QzuFqrF8mGAVdnLJqsuKa&ust=1726768447757000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOiAuvKHzYgDFQAAAAAdAAAAABAE" : value,
     }));
   };
+
 
 
   const convertToBase64WithName = (file) => {
@@ -134,6 +151,7 @@ const AepsFrom = () => {
     const base64Key = CryptoJS.enc.Base64.stringify(
       CryptoJS.enc.Utf8.parse(key)
     );
+
     const signature = CryptoJS.HmacSHA256(timestamp.toString(), base64Key);
     return CryptoJS.enc.Base64.stringify(signature);
   };
@@ -148,16 +166,20 @@ const AepsFrom = () => {
     const secretKey = generateSecretKey(key, secretKeyTimestamp);
 
     const headers = {
+
       accept: "application/json",
       "content-type": "application/x-www-form-urlencoded",
+
       developer_key: developerKey,
       "secret-key": secretKey,
-      "secret-key-timestamp": secretKeyTimestamp.toString(),
+      "secret-key-timestamp": secretKeyTimestamp.toString()
     };
 
     try {
       const addressAsPerProof = {
+
         line: formValues.proofline,
+
         city: formValues.proofCity,
         state: formValues.proofState,
         pincode: formValues.proofPinCode,
@@ -177,6 +199,9 @@ const AepsFrom = () => {
 
       const options = {
         method: "PUT",
+
+        mode: "no-cors", 
+
         headers,
         body: new URLSearchParams({
           user_code: "34819014",
@@ -191,21 +216,22 @@ const AepsFrom = () => {
           address_as_per_proof: formattedAddressAsPerProof,
         }),
       };
-
-      const response = await fetch(
-        "https://api.eko.in:25002/ekoicici/v1/user/service/activate",
-        options
-      );
+      
+      const response = await fetch('https://api.eko.in:25002/ekoapi/v1/user/service/activate', options);
       const data = await response.json();
-      console.log(data);
-
+      console.log('respose of api',data);
+         
       if (response.ok) {
         alert("Agent created successfully");
       } else {
         alert("Failed to create agent");
       }
+
+
+  
     } catch (error) {
       console.error("Error during API call:", error);
+
     }
   };
 
@@ -294,6 +320,22 @@ const AepsFrom = () => {
               ))}
             </div>
           </div>
+          {inputsConfigBiometric.map((element) => (
+            <>
+              <label>test input</label>
+      <input
+              type="file"
+              id={"name"}
+              name={"name"}
+              onChange={(e) => {
+                console.log(e.target.value, "called")
+              }}
+              // style={{ display: "none" }}
+            />
+
+            </>
+          ))}
+          
 
           <>
             <label>pan card</label>
