@@ -1,0 +1,532 @@
+
+  a {
+    cursor: pointer;
+  }
+  .homescreen {
+    width: 96.4%;
+    
+    max-width: 1440px;
+  }
+  .search_form {
+    border-radius: 10px;
+    background: #1749a0;
+    position: relative;
+  }
+  .search_icons {
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    width: 80%;
+    padding: 12px 71px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: -5rem;
+    position: relative;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .search_icons a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  a.active {
+    border-bottom: #1749a0 4px solid;
+  }
+  .radio_buttons {
+    display: flex;
+    gap: 15px;
+    color: white;
+    justify-content: center;
+    margin: 2rem auto;
+    align-items: center;
+  }
+  .radio_buttons.bus {
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .radio_buttons h4 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .radio_buttons input {
+    margin: 10px;
+  }
+  .travel_class {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+  }
+  .travel_class input {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .travel_class input.select {
+    background-color: #3e67b0;
+    color: #fff;
+    padding: 10px;
+  }
+  .flight_option {
+    display: flex;
+    flex-direction: column;
+  }
+  .from_to {
+    display: flex;
+    width: 50%;
+    position: relative;
+  }
+  .from_to h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .flight_search {
+    display: flex;
+    width: 90%;
+    margin: 2rem auto;
+    justify-content: center;
+    position: relative;
+  }
+  .submit_button {
+    text-align: center;
+    margin-bottom: -3rem;
+  }
+  .submit_btn {
+    background-color: #3e67b0;
+    color: white;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    min-width: 200px;
+    width: 25%;
+    margin: auto;
+  }
+  .from_to label {
+    background-color: white;
+    width: 100%;
+    padding: 6px 16px;
+    border: 0.25px solid black;
+  }
+  /* .from_to.hotel label {
+    width: 100%;
+  } */
+  .from_to.hotel {
+    width: 30%;
+  }
+  .flight_search label {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 16px;
+    border: 0.25px solid black;
+  }
+  .flight_search p {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .from_to {
+    font-size: 16px;
+  }
+  .search_dates {
+    display: flex;
+    /* width: 50%; */
+  }
+  .search_dates label input {
+    width: 100%;
+  }
+  .search_dates label {
+    background-color: white;
+    min-width: 33.333%;
+    max-width: 100%;
+  }
+  .search_dates.bus_form label {
+    width: 100%;
+  }
+  .css-hlgwow {
+    padding: 0% !important;
+  }
+  .css-1dimb5e-singleValue {
+    margin: 0% !important;
+  }
+  .swap_div {
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  .form_show {
+    display: block;
+  }
+  .form_hidden {
+    display: none;
+  }
+  
+  /* radio buttons for flight classes  */
+  
+  /* :focus {
+    outline: 0;
+    border-color: #2260ff;
+    box-shadow: 0 0 0 4px #b5c9fc;
+  } */
+  
+  .mydict div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+  
+  .mydict input[type="radio"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  .mydict input[type="radio"]:checked + span {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #3e67b0;
+    z-index: 1;
+    color: #fff;
+  }
+  
+  label span {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 10px;
+    position: relative;
+    margin-left: 0.0625em;
+    letter-spacing: 0.05em;
+    color: #3e4963;
+    text-align: center;
+    transition: background-color 0.5s ease;
+  }
+  
+  label:first-child span {
+    border-radius: 0.375em 0 0 0.375em;
+  }
+  
+  label:last-child span {
+    border-radius: 0 0.375em 0.375em 0;
+  }
+  
+  /* radio buttons for flight classes end  */
+  
+  /* switch button css  */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+    cursor: pointer;
+  }
+  
+  .toggle-switch input[type="checkbox"] {
+    display: none;
+  }
+  
+  .toggle-switch-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 2px black;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .toggle-switch-handle {
+    position: absolute;
+    top: 2.5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .toggle-switch::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    right: -35px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #aaa;
+    text-shadow: 1px 1px #fff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .toggle-switch input[type="checkbox"]:checked + .toggle-switch-handle {
+    transform: translateX(45px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 3px #05c46b;
+  }
+  
+  /* .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background {
+    background-color: #05c46b;
+    box-shadow: inset 0 0 0 2px #04b360;
+  } */
+  
+  .toggle-switch input[type="checkbox"]:checked + .toggle-switch:before {
+    content: "On";
+    color: #05c46b;
+    right: -15px;
+  }
+  
+  .toggle-switch
+    input[type="checkbox"]:checked
+    + .toggle-switch-background
+    .toggle-switch-handle {
+    transform: translateX(20px);
+    left: 0%;
+  }
+  .switch_click {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* switch button css end */
+  
+  .travelers {
+    position: absolute;
+    top: 120%;
+    right: 0%;
+    width: 40%;
+    background-color: white;
+    padding: 2rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .travelers label {
+    width: 100%;
+    height: 100%;
+  }
+  .traveller_option {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0%;
+  }
+  .travelers_options {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .traveller_option button {
+    background-color: #c4c4c4;
+    padding: 5px;
+    width: 24px;
+  }
+  .traveller_option span {
+    font-size: 14px;
+    padding: 0% 5px;
+    font-weight: 600;
+  }
+  .travellers_total{
+    display: flex;
+    align-items: center;
+  }
+  .travellers_total p{
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    align-items: baseline;
+  }
+  .travellers_total span{
+    margin: 0%;
+    padding: 0%;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .save_btn {
+    text-align: center;
+  }
+  .save_btn button {
+    background-color: #3e67b0;
+    color: white;
+    padding: 0.5rem 2rem;
+  }
+  .date_holder h1 {
+    font-size: 32px;
+    font-weight: 700px !important;
+  }
+  .date {
+    display: flex;
+    align-items: first baseline;
+    font-weight: 700;
+  }
+  .day {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  /* carousal css  */
+  
+  .carousel-wrapper {
+    overflow-x: scroll; /* Enable horizontal scroll */
+    display: flex;
+    width: 100%;
+    cursor: grab;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    padding: 1rem;
+    padding-top: 8rem;
+  }
+  
+  .carousel-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+  }
+  
+  .carousel-images {
+    display: flex;
+  }
+  
+  .carousel-item {
+    position: relative;
+    flex-shrink: 0;
+    width: 25%; /* Show 4 images at a time */
+    margin-right: 10px;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-title {
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    width: 100%;
+    /* text-align: center; */
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    padding: 10px 0;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Initially hide the title */
+  }
+  
+  .carousel-item:hover .image-title {
+    opacity: 1; /* Show the title on hover */
+  }
+  
+  .carousel-wrapper:active {
+    cursor: grabbing;
+  }
+  
+  /* carousal css end */
+  
+  .tour_section {
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    padding: 2rem 12%;
+    padding-top: 6rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .tour_name {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* border-bottom: #1749a0 4px solid; */
+    padding: 0.5rem;
+  }
+  .tourname_icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .tourname_icon img {
+    width: 100%;
+  }
+  .tour_name h3 {
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  /* time container css  */
+  
+  .time_container{
+    width: 30%;
+    margin: auto;
+    /* text-align: center; */
+    font-weight: 700;
+    background-color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-bottom: 3rem;
+  }
+  .big-time-picker .react-time-picker__wrapper {
+    font-size: 14px;
+  }
+  .react-time-picker__inputGroup__leadingZero{
+    display: none;
+  }
+  .react-time-picker__inputGroup__amPm{
+    padding: .2rem 0.5rem !important;
+    font-size: 16px !important;
+    min-width: 20% !important;
+  }
+  
+  .big-time-picker .react-time-picker__inputGroup__input {
+    height: 60px;
+    padding: .2rem 1rem;
+    font-size: 32px;
+    min-width: 35%;
+    margin-right: 5px;
+    font-size: 45px;
+    background-color: #E6E0E9;
+    border-radius: 8px;
+  }
+  
+  .big-time-picker .react-time-picker__inputGroup__divider {
+    font-size: 32px;
+  }
+  .react-time-picker__inputGroup{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  .react-time-picker__wrapper{
+    padding: 8px 0px;
+  }
+  

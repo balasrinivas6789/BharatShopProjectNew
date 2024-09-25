@@ -1,15 +1,26 @@
-import React from 'react';
+import React from "react";
 
-const AgentsInputs = ({ label, name, value, onChange, type = 'text', options = [], inputType = 'input' }) => {
-  // Set height based on the name of the input
-  const inputHeight = name === 'address' || name === 'billAddress' ? '124px' : '59px';
+const AgentsInputs = ({
+  label,
+  name,
+  value,
+  onChange,
+  type = "text",
+  options = [],
+  inputType = "input",
+}) => {
+  const inputHeight =
+    name === "address" || name === "billAddress" ? "124px" : "59px";
 
   return (
-    <div className="flex flex-col w-[265px]  ml-[9%] mr-[2%] mb-4"> {/* Ensure consistent margin-bottom */}
-      <label htmlFor={name} className="text-black font-[400] text-[16px] leading-normal mb-[10px]">
+    <div className="flex flex-col w-[265px]  ml-[9%] mr-[2%] mb-4">
+      <label
+        htmlFor={name}
+        className="text-black font-[400] text-[16px] leading-normal mb-[10px]"
+      >
         {label}
       </label>
-      {inputType === 'input' && (
+      {inputType === "input" && (
         <input
           type={type}
           id={name}
@@ -17,11 +28,11 @@ const AgentsInputs = ({ label, name, value, onChange, type = 'text', options = [
           value={value}
           onChange={onChange}
           className={`rounded-[5px] border border-black bg-white px-2`}
-          style={{ height: inputHeight }} // Apply dynamic height
+          style={{ height: inputHeight }}
           required
         />
       )}
-      {inputType === 'dropdown' && (
+      {inputType === "dropdown" && (
         <select
           id={name}
           name={name}
@@ -30,13 +41,17 @@ const AgentsInputs = ({ label, name, value, onChange, type = 'text', options = [
           className="h-[59px] rounded-[5px] border border-black bg-white px-2"
           required
         >
-          <option value="" disabled>Select {label}</option>
+          <option value="" disabled>
+            Select {label}
+          </option>
           {options.map((option) => (
-            <option key={option} value={option}>{option}</option>
+            <option key={option} value={option}>
+              {option}
+            </option>
           ))}
         </select>
       )}
-      {inputType === 'radio' && (
+      {inputType === "radio" && (
         <div className="h-[59px] flex items-center rounded-[5px] border border-black bg-white px-2">
           {options.map((option) => (
             <label key={option} className="flex items-center gap-2 mr-4">
@@ -47,7 +62,9 @@ const AgentsInputs = ({ label, name, value, onChange, type = 'text', options = [
                 onChange={onChange}
                 checked={value === option}
               />
-              <span className="text-black font-[400] text-[16px] leading-normal font-open-sans">{option}</span>
+              <span className="text-black font-[400] text-[16px] leading-normal font-open-sans">
+                {option}
+              </span>
             </label>
           ))}
         </div>

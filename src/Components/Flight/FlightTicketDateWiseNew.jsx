@@ -3,12 +3,13 @@ import airWayPng from '../../images/FlightImages/airWays.png';
 import flightDirectionPng from '../../images/FlightImages/Flight way.png';
 import cabbinPng from '../../images/FlightImages/Cabin.png';
 import checkInPng from '../../images/FlightImages/Checkin.png';
+import { useNavigate } from 'react-router-dom';
 
 const FlightTicketDateWiseNew = () => {
     const [activeTab, setActiveTab] = useState('Flight Details');
     const [showMoreInfo, setShowInfo] = useState(false);
+    const navigate = useNavigate();
 
-    // Toggle function to show/hide additional information
     const moreInfo = () => {
         setShowInfo(prevState => !prevState);
     };
@@ -81,7 +82,9 @@ const FlightTicketDateWiseNew = () => {
                         <button onClick={moreInfo} className='text-[#3E67B0] font-open-sans text-[16px] font-semibold leading-normal'>
                             More Information
                         </button>
-                        <button className='font-open-sans text-[16px] font-semibold leading-normal bg-[#456CAF] p-[10px] rounded-[5px] text-white'>
+                        <button
+                        onClick={() => navigate(`/FlightBookingReview`)}
+                        className='font-open-sans text-[16px] font-semibold leading-normal bg-[#456CAF] p-[10px] rounded-[5px] text-white'>
                             Buy Ticket
                         </button>
                     </div>

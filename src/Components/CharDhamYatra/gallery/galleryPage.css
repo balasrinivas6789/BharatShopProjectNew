@@ -1,0 +1,135 @@
+.schedule{
+    width: 60%;
+ 
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background-color: white;
+    border-radius: 12px;
+}
+.options button{
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+.options button.active{
+    background-color: #3E67B0;
+    color: white;
+}
+.info_container{
+    background-color: white;
+    padding: 64px 48px;
+    margin: 1rem auto;
+    border-radius: 10px;
+}
+.info_container h3{
+    padding-left: 18px;
+    border-left: 20px solid #FF6D00;
+    font-size: 24px;
+    font-weight: 600;
+}
+.day_card{
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem auto;
+}
+.day_title{
+    background-color: #3E67B0;
+    color: white;
+    padding: 25px 32px;
+}
+.day_title h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+.day_body{
+    display: flex;
+    background-color: #E8E8E8;
+    padding: 25px 32px;
+    gap: 30px;
+}
+.day_body img{
+    width: 60%;
+}
+.day_info ul{    
+    list-style-type: disc;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 25px;
+}
+.overview_card{
+    margin: 1rem auto;
+}
+.overview_body{
+    display: block !important;
+}
+.overview_title{
+    background-color: #83AFFD;
+    border-radius: 4px;
+    padding: 16px 8px;
+    margin: .25rem auto;
+}
+.overview_info{
+    background-color: white;
+    border-radius: 4px;
+    padding: 16px 8px;
+}
+.info_section{
+    display: flex;
+    gap: 36px;
+}
+.info_section h2{
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+}
+.price_sec{
+    width: 40%;
+}
+.price_container{
+    background-color: #3E67B0;
+    border-radius: 12px;
+    padding: 24px 36px;
+    position: sticky;
+    top: 110px;
+    width: 100%;
+    max-width: 506px;
+}
+.fare_details{
+    background-color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: .5rem auto;
+}
+.fare_details h5{
+    font-size: 20px;
+    font-weight: 600;
+}
+.price_section{
+    display: flex;
+    justify-content: space-between;
+}
+.price_section p{
+    font-weight: 400;
+    font-size: 16px;
+}
+.price_section span{
+    font-weight: 600;
+    font-size: 24px;
+}
+.submit_btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+.submit_btn a{
+    background-color: #7D9DF9;
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin: auto;
+}

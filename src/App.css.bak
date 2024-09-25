@@ -1,4 +1,4 @@
 .wholeBackground{
     background: linear-gradient(0deg, #18213B 0%, #18213B 100%);
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 }

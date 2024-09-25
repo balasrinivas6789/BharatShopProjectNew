@@ -1,0 +1,101 @@
+.table {
+  width: 96%;
+}
+.table table {
+  width: 100%;
+  /* background-color: white; */
+  /* border-radius: 4px 4px 0px 0px; */
+  margin: .5rem auto;
+  /* display: flex; */
+  flex-direction: column;
+  gap: 15px;
+}
+.table table thead {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.table table thead tr th {
+  background-color: white;
+  overflow: hidden;
+  width: 16.666%;
+  padding: 22px;
+}
+.table table thead tr th {
+  background-color: white;
+  overflow: hidden;
+}
+.table table tbody {
+  background-color: white;
+  overflow: hidden;
+}
+.table table tbody tr td {
+  border: 2px solid white;
+}
+.table td {
+  padding: 1rem;
+  border: none;
+}
+.table td span {
+  display: block;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+.table td a svg {
+  width: 100%;
+}
+.edit_btn {
+  background-color: #3e67b0;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  margin: auto;
+  width: 50%;
+  display: block;
+  max-width: 120px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.export_btn {
+  border-radius: 4px;
+  background: #ff6d00;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  min-width: 120px;
+  max-width: 120px;
+}
+.table .pagination {
+  display: flex;
+  color: white;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0%;
+}
+.table .pagination .previous, .table .pagination .next {
+  background-color: white;
+  color: black;
+}
+.table .pagination .disabled {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+.table .pagination .active {
+  border: 1px solid white;
+}
+.table .pagination li {
+  margin: 0% 5px;
+  padding: 5px 15px;
+}
+.table .pagination li.break {
+  margin: 0%;
+  border: none;
+  padding: 5px 15px;
+}
