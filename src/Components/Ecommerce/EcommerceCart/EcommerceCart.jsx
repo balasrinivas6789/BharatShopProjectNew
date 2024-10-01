@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleCartlist, } from '../ReduxToolkit/cartSlice';
 import { toggleWishlist } from '../ReduxToolkit/wishlistSlice';
 import { ElectronicsData } from '../EcommerceElectronicsPage/ElectronicsData';
+import SuggestionsCards from '../Suggestions/SuggestionsCards';
+
 
 const EcommerceCart = () => {
     const cartItems = useSelector((state) => state.cartlist.cartItems);
@@ -18,19 +20,25 @@ const EcommerceCart = () => {
     const handleAddToWishlist = (itemId) => {
         dispatch(toggleWishlist(itemId)); // Adjust this based on your action logic
     };
-
+ 
     return (
-        <div className='bg-[#17213c] h-[1891px]'>
+        <div className='bg-[#17213c] ml-11 mt-[53px] max-w-[1107px] '>
             <h2 className="font-open-sans text-[32px] font-bold leading-[43.58px] text-left text-white mt-[22px] mb-[12px]">Cart</h2>
             <div className='mainContainer flex flex-row gap-[24px]'>
-                <div className='addressContainer w-[634px] rounded-[8px] p-[13px] px-[16px] gap-[12px] bg-white'>
-                    <div className='addressComponent h-[81px] w-[602px] bg-[#1749a0] flex flex-row justify-between items-center rounded-[4px] p-[17px]'>
-                        <div className='buttonContainer bg-[#ff6d00] flex flex-row w-[176px] h-[47px] p-[10px] rounded-[4px] gap-[10px]'>
-                            <FaPlus className='w-[24px] h-[24px] text-white' />
-                            <h3 className="font-open-sans text-[20px] font-semibold leading-[27.24px] text-white">Add Address</h3>
+                <div className='addressContainer w-[45%] rounded-[8px] p-[13px] px-[16px] gap-[12px] bg-white'>
+                    <div className='addressComponent h-[81px] w-[100%] bg-[#1749a0] flex flex-row justify-between items-center rounded-[4px] p-[17px]'>
+                        <div className='buttonContainer bg-[#ff6d00] flex flex-row w-[30%] h-[47px] rounded-[4px] gap-2'>
+
+                            <div className='flex justify-center items-center'>
+                            <FaPlus className='w-[55%] h-[55%] text-white' />
+                            </div>
+
+                           <div className='flex justify-center items-center'>
+                           <h3 className="font-open-sans  text-xs  font-semibold  text-white">Add Address</h3>
+                           </div>
                         </div>
                         <div className='paraContainer'>
-                            <p className="font-open-sans text-white text-[20px] font-semibold leading-[27.24px]">Add your address to deliver</p>
+                            <p className="font-open-sans text-white md:text-sm  font-semibold ">Add your address to deliver</p>
                         </div>
                     </div>
 
@@ -42,8 +50,8 @@ const EcommerceCart = () => {
                     {Array.from(cartItems).map((itemId) => {
                         const item = ElectronicsData.find((product) => product.id === itemId);
                         return item ? (
-                            <div className='cartCardItem mb-[10px] flex flex-row w-[593px] h-[209px] rounded-[4px] pt-[11px] pr-[16px] pb-[11px] pl-[16px] gap-[16px] border border-gray-300 shadow-lg' key={itemId}>
-                                <div className="relative img-container w-[126px] h-[187px] rounded-[4px] overflow-hidden">
+                            <div className='cartCardItem mb-[10px] flex flex-row w-[100%] h-[40%] rounded-[4px] pt-[11px] pr-[16px] pb-[11px] pl-[16px] gap-[16px] border border-gray-300 shadow-lg' key={itemId}>
+                                <div className="relative img-container w-[30%] h-[100%] rounded-[4px] overflow-hidden">
                                     <input type="checkbox" className="absolute top-2 left-2 z-10 w-[16px] h-[16px]" />
                                     <img
                                         src={item.img}
@@ -53,32 +61,32 @@ const EcommerceCart = () => {
                                 </div>
                                 <div className="content-container">
                                     <div className='content-one'>
-                                        <h1 className="font-sans text-[20px] font-semibold leading-[27.24px] text-left">{item.name}</h1>
-                                        <h2 className="font-sans text-[16px] font-normal leading-[21.79px] text-justify">{item.description}</h2>
-                                        <p className="font-sans text-[10px] font-semibold leading-[13.62px] text-justify">Sold By: Bharath Shop</p>
+                                        <h1 className="font-sans text-[0.999rem] font-semibold  text-left">{item.name}</h1>
+                                        <h2 className="font-sans text-[0.655rem] font-normal  text-justify">{item.description}</h2>
+                                        <p className="font-sans text-[0.555rem] font-semibold  text-justify">Sold By: Bharath Shop</p>
                                     </div>
                                     <div className='content-two flex flex-row justify-between mt-[12px]'>
-                                        <p className="font-open-sans text-[20px] font-semibold leading-[27.24px] text-left">{item.price}</p>
+                                        <p className="font-open-sans text-1xl font-semibold  text-left">{item.price}</p>
                                         <div className='flex flex-row justify-between w-[96px] h-[24px]'>
                                             <button className='w-[24px] h-[24px] bg-[#CDD0D6]'>-</button>
-                                            <p className="font-sans text-[16px] font-semibold leading-[21.79px] text-left">1</p>
+                                            <p className="font-sans text-[16px] font-semibold  text-left">1</p>
                                             <button className='w-[24px] h-[24px] bg-[#3E67B0]'>+</button>
                                         </div>
                                     </div>
-                                    <div className='content-three flex flex-row justify-between mt-[16px]'>
-                                        <div className="removeButton bg-[#3E67B0] gap-[4px] rounded-[4px] p-[4px] flex justify-center items-center w-[184px] h-[32px]">
+                                    <div className='content-three flex flex-row gap-[5%] justify-between mt-[16px]'>
+                                        <div className="removeButton bg-[#3E67B0] gap-[4px] rounded-[4px] p-[4px] flex justify-center items-center w-[60%] h-[32px]">
                                             <RiDeleteBin5Fill className='text-white' />
                                             <button
-                                                className="font-sans text-[14px] text-white font-semibold leading-[19.07px] text-left"
+                                                className="font-sans text-white  md:text-[.155rem] lg:text-xs font-semibold leading-5 text-left"
                                                 onClick={() => handleRemoveFromCartlist(item.id)}
                                             >
-                                                Remove from the cart
+                                                Remove from cart
                                             </button>
                                         </div>
-                                        <div className="wishlistButton bg-[#3E67B0] gap-[4px] rounded-[4px] p-[4px] flex justify-center items-center w-[136px] h-[32px]">
+                                        <div className="wishlistButton bg-[#3E67B0] gap-[4px] rounded-[4px] p-[4px] flex justify-center items-center w-[60%] h-[32px]">
                                             <FaHeart className='text-white' />
                                             <button
-                                                className="font-sans text-white text-[14px] font-semibold leading-[19.07px] text-left"
+                                                className="font-sans text-white text-xs md:text-xs lg:text-xs font-semibold leading-5 text-left"
                                                 onClick={() => handleAddToWishlist(item.id)}
                                             >
                                                 Add to wishlist
@@ -94,18 +102,18 @@ const EcommerceCart = () => {
                         {/* Add coupon related content here if needed */}
                     </div>
                 </div>
-                <div className='couponContainer bg-[#1749a0] w-[446px] h-[511px]  px-[15px] py-[16px] justify-center items-center rounded-[8px]'>
-                    <div className="containerone flex flex-row justify-between w-[416px] h-[22px] mb-[10px]">
-                        <h1 className='font-sans text-base font-normal leading-[21.79px] text-left text-[white]'>Coupon</h1>
-                        <button className='font-sans text-base font-bold leading-[21.79px] text-left text-[#5C9D33]'>Show Coupons</button>
+                <div className='couponContainer bg-[#1749a0] w-[45%] h-[511px]  px-[15px] py-[16px] justify-center items-center rounded-[8px]'>
+                    <div className="containerone flex flex-row justify-between w-[100%] h-[22px] mb-[10px]">
+                        <h1 className='font-sans text-base font-normal  text-left text-[white]'>Coupon</h1>
+                        <button className='font-sans text-base font-bold  text-left text-[#5C9D33]'>Show Coupons</button>
                     </div>
                     <div className="containertwo  mb-[17px] relative">
 
-                        <input type='text' className='w-[416px] h-[59px] rounded-[8px] ' />
-                        <button className='w-[67px] h-[35px] bg-[#ff6d00] absolute right-2 top-1/2 transform -translate-y-1/2 text-white font-sans text-sm font-semibold leading-[19.07px] rounded-[4px] absolute '>Apply</button>
+                        <input type='text' className='w-[100%] h-[59px] rounded-[8px] ' />
+                        <button className='w-[67px] h-[35px] bg-[#ff6d00] absolute right-5 top-1/2 transform -translate-y-1/2 text-white font-sans text-sm font-semibold leading-[19.07px] rounded-[4px] absolute '>Apply</button>
                         
                     </div>
-                    <div className="containerthree bg-[white] px-[16px] py-[12px] w-[416px] h-[297px] rounded-[8px]">
+                    <div className="containerthree bg-[white] px-[16px] py-[12px] w-[100%] h-[297px] rounded-[8px]">
                         <h1 className='font-sans text-xl font-semibold leading-[27.24px] text-left'>Price Details(for 2 Items)</h1>
 
                         <div className="contentWithPrices ">
@@ -139,12 +147,17 @@ const EcommerceCart = () => {
 
 
                     </div>
-                    <div className="containerfour mt-[17px]  "></div>
+                    <div className="containerfour mt-[17px]  flex justify-center">
+                    <button className='w-[40%] h-[57px] rounded-[4px] bg-[#7e9df8] text-white font-sans text-1xl font-semibold '>Proceed To pay</button>
+                    </div>
 
-                    <button className='w-[209px] h-[57px] rounded-[4px] bg-[#7e9df8] text-white font-sans text-2xl font-semibold leading-[32.68px] '>Proceed To pay</button>
+                    
                 </div>
+                
             </div>
-
+            <div className="suggestionContainer">
+                <SuggestionsCards/>
+            </div>
         </div>
     );
 }

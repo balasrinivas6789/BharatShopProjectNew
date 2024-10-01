@@ -19,9 +19,9 @@ const EcommerceWishlist = () => {
       }
 
     return (
-        <div className="container mt-[53px] max-w-[1107px] mx-auto">
+        <div className="container bg-[#17213c] h-[1255px] mt-[53px] max-w-[1107px] mx-auto">
             <h2 className="font-open-sans text-[32px] font-bold leading-[43.58px] text-left text-white mb-[12px] ">Your Wishlist</h2>
-            <div className="grid grid-cols-3 gap-12 py-8 px-[29px] rounded-[10px] bg-[#125fa7]">
+            <div className="grid grid-cols-4 gap-[25px]  py-8 px-[29px] rounded-[10px] ">
                 {Array.from(wishedItems).map((itemId) => {
                     const item = ElectronicsData.find((product) => product.id === itemId);
 

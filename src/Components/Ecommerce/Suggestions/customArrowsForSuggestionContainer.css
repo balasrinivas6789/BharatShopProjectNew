@@ -1,0 +1,14 @@
+.react-multiple-carousel__arrow--right{
+    top :30px;    
+}
+.react-multiple-carousel__arrow--left{
+    top: 30px;
+    left: auto;
+    right: 100px !important;
+}
+.react-multi-carousel-list {
+    position: static;
+}
+.react-multi-carousel-track{
+    /* gap: 24px; */
+}

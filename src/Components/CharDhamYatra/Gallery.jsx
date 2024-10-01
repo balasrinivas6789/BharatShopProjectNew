@@ -21,40 +21,40 @@ const Gallery = () => {
   return (
     <>
       <div className="ms-[20px]">
-        <div className="flex flex-row  w-[1397px] h-[767px] p-[64px] bg-white  items-center gap-[29px]">
+        <div className="flex flex-row  w-[98%] h-auto p-[64px] bg-white  items-center gap-[29px]">
           <div>
             <img
               src={picture1}
               alt="pic1"
-              className="w-[477px] h-[639px] rounded-[8px] cursor-pointer"
+              className="w-[100%] h-auto rounded-[8px] cursor-pointer"
               onClick={() => handleImageClick(picture1)}
             />
           </div>
           <div className="flex flex-col">
-            <div className="flex flex-row gap-[29px]">
+            <div className="flex flex-row gap-[23px]">
               <img
                 src={picture3}
                 alt="pic3"
-                className="w-[235px] h-[283px] rounded-[8px] cursor-pointer"
+                className="w-[30%] h-auto rounded-[8px] cursor-pointer"
                 onClick={() => handleImageClick(picture3)}
               />
               <img
                 src={picture4}
                 alt="pic4"
-                className="w-[235px] h-[283px] rounded-[8px] cursor-pointer"
+                className="w-[30%] h-auto rounded-[8px] cursor-pointer"
                 onClick={() => handleImageClick(picture4)}
               />
               <img
                 src={picture5}
                 alt="pic5"
-                className="w-[235px] h-[283px] rounded-[8px] cursor-pointer"
+                className="w-[30%] h-auto rounded-[8px] cursor-pointer"
                 onClick={() => handleImageClick(picture5)}
               />
             </div>
             <img
               src={picture2}
               alt="pic2"
-              className="mt-[12px] w-[763px] h-[344px] rounded-[8px] cursor-pointer"
+              className="mt-[12px] w-[100%] h-auto rounded-[8px] cursor-pointer"
               onClick={() => handleImageClick(picture2)}
             />
           </div>

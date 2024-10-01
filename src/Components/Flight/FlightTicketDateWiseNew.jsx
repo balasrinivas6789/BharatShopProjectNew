@@ -15,8 +15,9 @@ const FlightTicketDateWiseNew = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center w-[822px] bg-[#395183]">
-            <div className='w-[728px] bg-white mb-[10px] mt-[10px] rounded-[12px]'>
+       <div className='flex justify-center'>
+ <div className="flex flex-col justify-center items-center  w-[70%] bg-[#395183]">
+            <div className=' bg-white mb-[10px] mt-[10px] rounded-[12px]'>
                 <div className='flex flex-row pt-[27px] pb-[27px] pl-[20px] pr-[20px] justify-between'>
                     <div className='flex flex-col items-center'>
                         <img className='h-[60px]' src={airWayPng} alt='airWayImg' />
@@ -36,7 +37,7 @@ const FlightTicketDateWiseNew = () => {
                                 Delhi
                             </p>
                         </div>
-                        <div className='flex flex-col flex justify-center items-center'>
+                        <div className='flex flex-col  justify-center items-center'>
                             <p className='text-black font-open-sans text-[14px] font-semibold leading-normal'>
                                 2hrs 15min
                             </p>
@@ -265,6 +266,7 @@ const FlightTicketDateWiseNew = () => {
                 </div>
             </div>
         </div>
+       </div>
     );
 }
 

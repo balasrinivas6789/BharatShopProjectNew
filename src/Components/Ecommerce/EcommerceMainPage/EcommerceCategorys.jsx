@@ -50,7 +50,7 @@ const EcommerceCategorys = () => {
             {
                 CategoryList.map((item)=>(
                     <div  >
-                        <Link to='/Electronics'>
+                        <Link to='/EcommerceMainPage/Electronics'>
                         <img src={item.img} alt={item.title} className='h-[146px]' />
                     <h3 className="text-black text-center font-open-sans text-[20px] font-semibold mt-[8px]">{item.title}</h3>
                         </Link>

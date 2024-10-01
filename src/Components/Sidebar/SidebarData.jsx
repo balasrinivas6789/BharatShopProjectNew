@@ -40,7 +40,7 @@ const accordions = [
   title: "Hotels",
   icon: four,
   items: [
-   { name: "Make Booking", route: "" },
+   { name: "Make Booking", route: "hotels" },
    { name: "Transaction Log", route: "" },
    { name: "Reports", route: "" },
    { name: "Markup Commission", route: "" },

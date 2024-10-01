@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Sidebar.css"; // Ensure you create this CSS file
-import accordions from "./SidebarData"; // Ensure you have this data file
+import "./Sidebar.css";
+import accordions from "./SidebarData"; 
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ sidebarToggle }) => {
@@ -12,7 +12,7 @@ const Sidebar = ({ sidebarToggle }) => {
   };
 
   return (
-    <div className="sidebar fixed scrollbar-hidden overflow-y-auto">
+    <div className="sidebar w-[16.666667%] fixed scrollbar-hidden overflow-y-auto">
       <div className="pb-[7rem]">
         <div className="m-3">
           <h2 id="accordion-collapse-heading-0">
@@ -93,6 +93,4 @@ const Sidebar = ({ sidebarToggle }) => {
       </div>
     </div>
   );
-};
-
-export default Sidebar;
+};  export default Sidebar;

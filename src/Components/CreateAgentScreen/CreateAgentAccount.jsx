@@ -59,7 +59,7 @@ const CreateAgentAccount = () => {
       name: "distributor",
       label: "Distributor",
       inputType: "dropdown",
-      options: ["Distributor 1", "Distributor 2", "Distributor 3"],
+      options: ["Admin", "Distributor", "Client"],
     },
     {
       name: "category",
@@ -83,7 +83,7 @@ const CreateAgentAccount = () => {
     { name: "confirmPassword", label: "Confirm Password", type: "password" },
     { name: "transactionPin", label: "Transaction Pin", type: "password" },
     { name: "address", label: "Address" },
-    { name: "billAddress", label: "Billing Address" },
+    { name: "billAddress", label: "Billing Address"   },
     {
       name: "state",
       label: "State",
@@ -98,9 +98,42 @@ const CreateAgentAccount = () => {
     },
     {
       name: "city",
-      label: "City",
-      inputType: "dropdown",
-      options: ["City 1", "City 2", "City 3"],
+      label: "City/Town",
+      // inputType: "dropdown",
+      // options: [
+      //   "Mumbai",
+      //   "Delhi",
+      //   "Bengaluru",
+      //   "Hyderabad",
+      //   "Ahmedabad",
+      //   "Chennai",
+      //   "Kolkata",
+      //   "Surat",
+      //   "Pune",
+      //   "Jaipur",
+      //   "Lucknow",
+      //   "Kanpur",
+      //   "Nagpur",
+      //   "Indore",
+      //   "Thane",
+      //   "Bhopal",
+      //   "Patna",
+      //   "Ludhiana",
+      //   "Agra",
+      //   "Nashik",
+      //   "Vadodara",
+      //   "Faridabad",
+      //   "Meerut",
+      //   "Rajkot",
+      //   "Varanasi",
+      //   "Srinagar",
+      //   "Aurangabad",
+      //   "Dhanbad",
+      //   "Amritsar",
+      //   "Navi Mumbai",
+      //   "Allahabad",
+      //   "Others"
+      // ],
     },
     {
       name: "country",
@@ -203,15 +236,15 @@ const CreateAgentAccount = () => {
   };
 
   return (
-    <div className="w-[1104px] h-[2222px] rounded-[12px] bg-white">
-      <div className="inline-flex items-center p-[10px_61px_10px_10px] gap-[290px] rounded-[4px] bg-[#F4F4F4] ml-[15px] mr-[15px] mt-[12px] mb-[29px]">
-        <h1 className="text-black font-[600] text-[24px] leading-normal font-open-sans">
+    <div className="w-[90%] h-[2222px] mt-[30px] mb-[87px] m-auto rounded-[12px] bg-white">
+      <div className="inline-flex items-center w-[98%] mt-[1%] mx-[1%] p-[2%] justify-between rounded-[4px] bg-[#F4F4F4] mb-[3%] ">
+        <h1 className="text-black font-[600] text-[3xl]  font-open-sans">
           Create Agent Account
         </h1>
         <div>
           <input type="checkbox" id="checkbox" className="w-[16px] h-[16px]" />
           <label
-            className="text-black font-[600] text-[14px] leading-normal font-open-sans ml-[14px]"
+            className="text-black font-[600] text-[14px] font-open-sans ml-[14px]"
             htmlFor="checkbox"
           >
             Please check the box to create this agent under any Distributor.
@@ -240,12 +273,12 @@ const CreateAgentAccount = () => {
           )
         )}
       </div>
-      <div className="inline-flex items-center p-[10px_61px_10px_10px] gap-[290px] rounded-[4px] bg-[#F4F4F4] w-[1074px] h-[53] ml-[15px] mr-[15px] mt-[12px] mb-[30px]">
+      <div className="inline-flex items-center p-[10px_21px_10px_10px] gap-[290px] rounded-[4px] bg-[#F4F4F4] w-[98%] h-[53] mx-auto  mt-[12px] mb-[30px]">
         <h1 className="text-black font-[600] text-[24px] leading-normal font-open-sans">
-          Bank Details
+        GST Details
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1  sm:grid-cols-3 gap-4">
         {inputsConfig2.map(
           ({
             name,
@@ -273,7 +306,10 @@ const CreateAgentAccount = () => {
           )
         )}
 
-        <div className="flex w-[192px] p-[21px_24px] flex-col justify-center items-center gap-[31px] rounded-[8px] bg-[#18213B] shadow-[0px_0px_12.3px_3px_rgba(0,0,0,0.25)] ml-[458px] mr-[502px] mt-[62px] text-white mb-[62px]">
+        
+      </div>
+      <div className="flex justify-center items-center">
+  <div className="flex w-[192px] p-[21px_24px] flex-col m-auto justify-center items-center gap-[31px] rounded-[8px] bg-[#18213B] shadow-[0px_0px_12.3px_3px_rgba(0,0,0,0.25)]  mt-[62px] text-white mb-[62px]">
           <h1>Basic</h1>
           <p>
             ₹0.00/ <span>Month</span>
@@ -283,7 +319,7 @@ const CreateAgentAccount = () => {
             <label htmlFor="claimItcheckbox">Claim it</label>
           </div>
         </div>
-      </div>
+</div>
       <div>
         <p className="text-[#FF4545] ml-[58px] mb-[86px] font-open-sans text-[16px] font-normal leading-normal">
           Lorem ipsum dolor sit amet consectetur.
@@ -294,12 +330,12 @@ const CreateAgentAccount = () => {
           {error}
         </p>
       )}
-      <div className="gap-[23px] inline-flex ml-[569px] mb-[56px]">
-        <button className="w-[231px] p-[12px_18px] rounded-[5px] bg-white border border-[#000] text-black">
+      <div className="gap-[23px] flex justify-end  mb-[56px]">
+        <button className="w-[20%] h-[46px] p-[12px_18px] rounded-[5px] bg-white border border-[#000] text-black">
           Cancel
         </button>
         <button
-          className="w-[231px] p-[12px_18px] rounded-[5px] bg-[#3E67B0] text-white"
+          className="w-[20%]  h-[46px] p-[12px_18px] mr-[1%] rounded-[5px] bg-[#3E67B0] text-white"
           onClick={handleCreateAgent}
         >
           Create Agent

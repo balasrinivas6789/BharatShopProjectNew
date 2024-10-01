@@ -9,7 +9,7 @@ import ThirdBanner from '../../../images/Eccomerce/EcommerceMainPageImages/Banne
 
 const EcommerceBanners = () => {
     return (
-        <div className="flex  mt-[24px] flex-col items-center gap-[24px]">
+        <div className="flex mt-[24px] flex-col items-center gap-[24px]">
             <Carousel
              className="custom-carousel"
             showArrows={false} 

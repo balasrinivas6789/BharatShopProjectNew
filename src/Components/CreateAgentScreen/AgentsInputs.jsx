@@ -13,7 +13,7 @@ const AgentsInputs = ({
     name === "address" || name === "billAddress" ? "124px" : "59px";
 
   return (
-    <div className="flex flex-col w-[265px]  ml-[9%] mr-[2%] mb-4">
+    <div className="flex flex-col w-[85%]  ml-[9%] mr-[2%] mb-4">
       <label
         htmlFor={name}
         className="text-black font-[400] text-[16px] leading-normal mb-[10px]"
@@ -52,9 +52,9 @@ const AgentsInputs = ({
         </select>
       )}
       {inputType === "radio" && (
-        <div className="h-[59px] flex items-center rounded-[5px] border border-black bg-white px-2">
+        <div className="h-[59px]  flex items-center rounded-[5px] border border-black bg-white px-1">
           {options.map((option) => (
-            <label key={option} className="flex items-center gap-2 mr-4">
+            <label key={option} className="flex items-center gap-[0.001rem]">
               <input
                 type="radio"
                 name={name}
@@ -62,7 +62,7 @@ const AgentsInputs = ({
                 onChange={onChange}
                 checked={value === option}
               />
-              <span className="text-black font-[400] text-[16px] leading-normal font-open-sans">
+              <span className="text-black font-[400] text-sm  font-open-sans">
                 {option}
               </span>
             </label>
