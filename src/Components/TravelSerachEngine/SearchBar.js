@@ -646,7 +646,7 @@ function SearchBar() {
               </div>
             </div>
             <div className="submit_button">
-              <button className="submit_btn" type="submit">
+              <button className="btnsearch" type="submit">
                 Search
               </button>
             </div>
@@ -780,7 +780,7 @@ function SearchBar() {
               </div>
             </div>
             <div className="submit_button">
-              <button className="submit_btn" type="submit">
+              <button className="btnsearch" type="submit">
                 Search
               </button>
             </div>
@@ -932,7 +932,7 @@ function SearchBar() {
               {/* <p className="large-time">Selected Pick Up Time: {time}</p> */}
             </div>
             <div className="submit_button">
-              <button className="submit_btn" type="submit">
+              <button className="btnsearch" type="submit">
                 Search
               </button>
             </div>
@@ -995,7 +995,7 @@ function SearchBar() {
               </div>
             </div>
             <div className="submit_button">
-              <button className="submit_btn" type="submit">
+              <button className="btnsearch" type="submit">
                 Search
               </button>
             </div>

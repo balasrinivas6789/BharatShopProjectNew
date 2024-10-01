@@ -12,7 +12,7 @@ const TableList = () => {
         accessor: "id",
       },
       {
-        Header: "Flight Details",
+        Header: "Car Type",
         accessor: "details",
       },
       {
@@ -417,11 +417,11 @@ const TableList = () => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    page, // Page data based on pagination
+    page, 
     prepareRow,
     setPageSize: updatePageSize,
     pageOptions,
-    gotoPage, // To control pagination
+    gotoPage, 
     state: { pageIndex },
   } = useTable(
     {
@@ -433,7 +433,7 @@ const TableList = () => {
   );
 
   const handlePageChange = ({ selected }) => {
-    gotoPage(selected); // Set the page index
+    gotoPage(selected); 
   };
 
   const exportToCSV = () => {

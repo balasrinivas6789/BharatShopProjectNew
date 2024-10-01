@@ -1,0 +1,22 @@
+.car_cardss {
+    background-color: #f4f4f4;
+    padding: 16px 24px;
+    border-radius: 10px;
+    margin: 0.5rem auto;
+  }
+  .car_cardss h2 {
+    font-size: 24px;
+    font-weight: 700
+  }
+  .car_cardss p {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .car_cardss span {
+    color: #0052dd;
+  }
+  .car_cardss ul {
+    font-size: 12px;
+    font-weight: 600;
+    list-style: disc;
+  }

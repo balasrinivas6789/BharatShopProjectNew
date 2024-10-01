@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./carCard.css";
 import carImg from "../../images/car_img.png";
 
-const CarCards = () => {
+const CabTrasactions = () => {
   const accordionData = [
     {
       id: "cartype",
@@ -453,4 +453,4 @@ const CarCards = () => {
   );
 };
 
-export default CarCards;
+export default CabTrasactions;

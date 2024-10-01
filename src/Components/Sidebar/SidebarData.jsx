@@ -66,7 +66,7 @@ const accordions = [
   icon: Group,
   items: [
    { name: "Make Booking", route: "cabbooking" },
-   { name: "Transaction Log", route: "" },
+   { name: "Transaction Log", route: "transactionlog" },
    { name: "Reports", route: "" },
    { name: "Markup Commission", route: "" },
    { name: "Cancellation Charges", route: "" },

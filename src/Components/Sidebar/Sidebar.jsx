@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Sidebar.css"; // Ensure you create this CSS file
-import accordions from "./SidebarData"; // Ensure you have this data file
+import "./Sidebar.css";
+import accordions from "./SidebarData"; 
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ sidebarToggle }) => {
@@ -12,7 +12,7 @@ const Sidebar = ({ sidebarToggle }) => {
   };
 
   return (
-    <div className="sidebar fixed scrollbar-hidden overflow-y-auto">
+    <div className="sidebar w-[16.666667%] fixed scrollbar-hidden overflow-y-auto">
       <div className="pb-[7rem]">
         <div className="m-3">
           <h2 id="accordion-collapse-heading-0">
@@ -51,10 +51,10 @@ const Sidebar = ({ sidebarToggle }) => {
                 aria-expanded={expanded === accordion.id}
                 aria-controls={`accordion-collapse-body-${accordion.id}`}
               >
-                <img className="text-orange-500" src={accordion.icon} alt="icon" />
-                <span>{accordion.title}</span>
+                <img className="text-orange-500 shrink" src={accordion.icon} alt="icon" />
+                <span class="text-xl  lg:text-sm xl:text-md   text-center  w-full">{accordion.title}</span>
                 <svg
-                  className={`w-3 h-3 shrink-0 transition-transform duration-1000 ${expanded === accordion.id ? "rotate-45" : "rotate-0"}`}
+                  className={`w-3 h-3  transition-transform duration-1000 ${expanded === accordion.id ? "rotate-45" : "rotate-0"}`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

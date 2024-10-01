@@ -6,6 +6,9 @@ import ChildForm from "./ChildForm";
 import InfrantForm from "./InfrantForm";
 import veg from "../../images/mdi_lacto-vegetarian.svg";
 import nonveg from "../../images/mdi_lacto-non-vegetarian.svg";
+import seat from "../../images/FlightImages/seats.svg";
+import seatSelected from "../../images/FlightImages/selectedSeat.svg";
+import unavailableSeat from "../../images/FlightImages/unavailableSeat.svg";
 
 const FlightBookingReview = () => {
   const [adults, setAdults] = useState([{ id: 1 }]);
@@ -13,6 +16,25 @@ const FlightBookingReview = () => {
   const [infrants, setInfrants] = useState([]);
   const [showGST, setShowGST] = useState(false);
   const [selectedTab, setSelectedTab] = useState("seat");
+  const [selectedSeats, setSelectedSeats] = useState([]);
+
+  const [showSeatLegend, setShowSeatLegend] = useState(false);
+
+  const totalSeats = 100;
+  const seatsPerRow = 6;
+  const totalRows = Math.ceil(totalSeats / seatsPerRow);
+  const seatLabels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+  const handleSeatClick = (rowIndex, seatIndex) => {
+    const seatId = `${rowIndex}-${seatIndex}`;
+    setSelectedSeats((prevSelected) => {
+      if (prevSelected.includes(seatId)) {
+        return prevSelected.filter((id) => id !== seatId);
+      } else {
+        return [...prevSelected, seatId];
+      }
+    });
+  };
 
   const addAdult = () => {
     const newAdult = adults.length + 1;
@@ -398,10 +420,143 @@ const FlightBookingReview = () => {
                   <div className="relative">
                     <img src={dom} alt="Rounded" className="w-full h-auto" />
                     <hr className="border border-black mx-[10px]  mt-[-48px]" />
-                    <div className="absolute top-1 left-1  text-white flex justify-center">
-                      <button className="p-[10px] bg-[#3E67B0] rounded-md">
+                    <div className="absolute top-1 left-1  text-white">
+                      <button
+                        onClick={() => setShowSeatLegend(!showSeatLegend)}
+                        className="p-[10px] bg-[#3E67B0] rounded-md"
+                      >
                         Seat Legend
                       </button>
+
+                      {showSeatLegend ? (
+                        <div className="rounded-md bg-white">
+                          <div className="flex justify-between mt-2">
+                            <div className="p-3">
+                              <img src={seat} />
+                            </div>
+                            <div className="mt-4 p-3">
+                              <p className="text-black text-[14px] pe-7 font-bold">
+                                Available
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <div className="p-3">
+                              <img src={seatSelected} />
+                            </div>
+                            <div className="mt-4 p-3">
+                              <p className="text-black text-[14px] pe-10 font-bold">
+                                Seleted
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <div className="p-3">
+                              <img src={unavailableSeat} />
+                            </div>
+                            <div className="mt-4 p-3">
+                              <p className="text-black text-[14px] font-bold">
+                                not Available
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <></>
+                      )}  
+                    </div>
+
+                      <div className="relative">
+                        <p className="bg-black text-white absolute bottom-48 left-[300px] p-2 rounded-md">Cabin</p>
+                      </div>
+
+                    <div className="flex pt-10 flex-col">
+                      <div className="flex ps-[16px] justify-between mb-2">
+                        <div className="flex flex-row space-x-4">
+                          {seatLabels.slice(0, seatsPerRow / 2).map((label) => (
+                            <div key={label}>
+                              <span className="text-lg ps-12 font-bold">
+                                {label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="flex ps-10">
+                          {seatLabels
+                            .slice(seatsPerRow / 2, seatsPerRow)
+                            .map((label) => (
+                              <div key={label}>
+                                <span className="text-lg pe-14 font-bold">
+                                  {label}
+                                </span>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+
+                      {Array.from({ length: totalRows }, (_, rowIndex) => (
+                        <div key={rowIndex} className="flex items-center m-4">
+                          <div className="mr-4">
+                            <span className="text-lg font-bold">
+                              {rowIndex + 1}
+                            </span>
+                          </div>
+
+                          <div className="flex justify-between w-full">
+                            <div className="flex space-x-4">
+                              {Array.from({ length: seatsPerRow / 2 }).map(
+                                (_, seatIndex) => (
+                                  <div key={seatIndex}>
+                                    <img
+                                      src={
+                                        selectedSeats.includes(
+                                          `${rowIndex}-${seatIndex}`
+                                        )
+                                          ? seatSelected
+                                          : seat
+                                      }
+                                      alt={`Seat ${rowIndex + 1}`}
+                                      onClick={() =>
+                                        handleSeatClick(rowIndex, seatIndex)
+                                      }
+                                      style={{ cursor: "pointer" }}
+                                    />
+                                  </div>
+                                )
+                              )}
+                            </div>
+
+                            <div className="flex space-x-4">
+                              {Array.from({ length: seatsPerRow / 2 }).map(
+                                (_, seatIndex) => (
+                                  <div key={seatIndex + seatsPerRow / 2}>
+                                    <img
+                                      src={
+                                        selectedSeats.includes(
+                                          `${rowIndex}-${
+                                            seatIndex + seatsPerRow / 2
+                                          }`
+                                        )
+                                          ? seatSelected
+                                          : seat
+                                      }
+                                      alt={`Seat ${rowIndex + 1}`}
+                                      onClick={() =>
+                                        handleSeatClick(
+                                          rowIndex,
+                                          seatIndex + seatsPerRow / 2
+                                        )
+                                      }
+                                      style={{ cursor: "pointer" }}
+                                    />
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </>
@@ -602,7 +757,7 @@ const FlightBookingReview = () => {
                 </div>
               </div>
 
-              <div className="flex justify-center mt-2">
+              <div className="flex justify-center mt-3">
                 <button
                   type="button"
                   class="px-5 text-2xl py-3 font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-400 dark:bg-[#7e9df8] dark:hover:bg-blue-600 dark:focus:ring-blue-800"

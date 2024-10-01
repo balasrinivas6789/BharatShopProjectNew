@@ -20,7 +20,7 @@
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 16px;
+  border-radius: 100%;
   user-select: none;
 }
 
@@ -36,9 +36,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 16px;
-  width: 16px;
-  border-radius: 4px;
+  padding: auto;
+  border-radius: 5px;
   border: 1px solid black;
   transition: background-color 0.3s;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
@@ -60,6 +59,7 @@
 .custom-checkbox:checked ~ .checkmark {
   background-color: black;
   /* box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3); */
+  border-radius: 20%;
 }
 
 .custom-checkbox:checked ~ .checkmark:after {
