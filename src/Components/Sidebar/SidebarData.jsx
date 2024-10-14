@@ -91,8 +91,8 @@ const accordions = [
   title: "Recharges",
   icon: Group,
   items: [
-   { name: "Mobile Recharge", route: "" },
-   { name: "View Commission", route: "" },
+   { name: "Recharges", route: "Recharges" },
+   { name: "View Commission", route: "ViewCommission" },
    { name: "Set Commission", route: "" },
    { name: "Reports", route: "" },
    { name: "Recharge Incentives", route: "" },
@@ -105,7 +105,7 @@ const accordions = [
   title: "Bill payments",
   icon: mask,
   items: [
-   { name: "Bill Payments", route: "" },
+   { name: "Bill Payments", route: "billpayments" },
    { name: "View Commission", route: "" },
    { name: "Set Commission", route: "" },
    { name: "Reports", route: "" },

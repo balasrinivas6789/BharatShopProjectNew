@@ -29,6 +29,14 @@ import Login from "./Components/LoginPage/Login";
 import HotelCard from "./Components/Hotels/HotelCard";
 import HotelsScreen from "./Components/Hotels/HotelsScreen/HotelsScreen";
 import HotelBookingScreen from "./Components/Hotels/HotelsScreen/HotelBookingScreen";
+import CheckOutPage from "./Components/Ecommerce/CheckOutPage/CheckOutPage";
+import MobileRecharge from "./Components/MobileRecharges/MobileRecharge";
+import TransactionLog from "./Components/MobileRecharges/TransactionLog";
+import RechargePage from "./Components/Recharges/RechargePage";
+import DthRechargePage from "./Components/DthRechargePage/DthRechargePage";
+import DataCardRecharge from "./Components/DataCardRecharge/DataCardRecharge";
+import BillPayments from "./Components/BillPayments/BillPayments";
+
 
 function App() {
   const [sidebarToggle, setSidebarToggle] = useState(true);
@@ -44,8 +52,8 @@ function App() {
       <div
           className={`transition-all  duration-1000 flex-col ${
             sidebarToggle
-              ? "lg:w-[16.666667%] overflow-hidden lg:overflow-auto scrollbar-hidden"
-              : "lg:w-0 overflow-hidden scrollbar-hidden"
+              ? "w-[18.88888888888889%] overflow-hidden lg:overflow-auto scrollbar-hidden"
+              : "w-0 overflow-hidden scrollbar-hidden"
           } `}
         >
 
@@ -53,8 +61,8 @@ function App() {
         </div>
 
         <div
-          className={`transition-all  duration-1000 flex-col ${
-            sidebarToggle ? "lg:w-[83.333333%]" : "lg:w-[100%] "
+          className={`transition-all  duration-1000 flex-col relative ${
+            sidebarToggle ? "w-[81.11111111111111%]" : "w-[100%] px-[100px]"
           }`}
         >
 
@@ -78,6 +86,7 @@ function App() {
                 path="/EcommerceMainPage/wishlist" element={<EcommerceWishlist />}
               ></Route>
               <Route path="/EcommerceMainPage/cartpage" element={<EcommerceCart />}></Route>
+              <Route path="/EcommerceMainPage/checkoutpage" element={<CheckOutPage/>}></Route>
 
               <Route
               path="/EcommerceMainPage/Electronics"
@@ -107,6 +116,14 @@ function App() {
             <Route path="/busesbooking" element={<BusSearch />}></Route>
             <Route path="/orders" element={<EcommerceOrder />}></Route>
             <Route path="/cart" element={<EcommerceCart />}></Route>
+            <Route path="/Recharges" element={<RechargePage/>} ></Route>
+            <Route path="/rechargepage/mobilerecharge" element={<MobileRecharge />} ></Route>
+            <Route path="/rechargepage/dthrecharge" element={<DthRechargePage />} ></Route>
+            <Route path="/rechargepage/datacardrecharge" element={<DataCardRecharge/>}></Route>
+            <Route path="/ViewCommission" element={<TransactionLog/>}></Route>
+            <Route path="/billpayments" element={<BillPayments />}></Route>
+
+            
           </Routes>
         </div>
       </div>

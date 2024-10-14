@@ -58,13 +58,12 @@ const HotelsScreen = () => {
     setSelectedAirport(selectedOption);
   };
   return (
-    <div className=" m-auto">
-      <div className="relative  searchContainer h-[211px] mx-auto mt-[14px] rounded-[10px] bg-[#14479F]">
+    <div className=" mx-1">
+      <div className="relative  searchContainer w-[95%] p-1  mt-[14px] rounded-[10px] bg-[#14479F]">
         <div className="headingContainer  flex justify-between text-white">
           <h1 class="font-sans text-[32px] font-bold leading-[43.58px] pt-[21px] pl-[24px] text-left">
             Hotel in delhi
           </h1>
-         
         </div>
         <form className="form_show ">
           <div className="flight_data">
