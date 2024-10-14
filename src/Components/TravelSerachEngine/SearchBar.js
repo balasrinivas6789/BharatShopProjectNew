@@ -5,7 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
 import { format } from "date-fns";
 import "./SearchBar.css";
-import iccon from "../../images/iccon.jpg"
+import iccon from "../../images/iccon.jpg";
+import { useNavigate } from "react-router-dom";
+import { useAsyncDebounce } from "react-table/dist/react-table.development";
 
 function SearchBar() {
   const airports = [
@@ -32,13 +34,17 @@ function SearchBar() {
       label: (
         <div>
           <h1>Hyderabad</h1>
-          HYD, International Airport, India
+          HYD, RGAI Airport, India
         </div>
       ),
     },
   ];
   const [activeService, setActiveService] = useState("flight");
   const [activeTour, setActiveTour] = useState("devotional");
+  const [tripType, setTripType] = useState("One Way");
+  const [travelClass, setTravelClass] = useState("Economy");
+  const [personType, setPersonType] = useState("Regular");
+  const navigate = useNavigate();
 
   const handleClick = (divId) => {
     setActiveService(divId);
@@ -85,10 +91,8 @@ function SearchBar() {
     setSelectedAirport1(selectedAirport);
   };
 
-  // travellers handling section
-
   const [travellers, setTravellers] = useState({
-    adult: 20,
+    adult: 1,
     child: 0,
     infant: 0,
   });
@@ -117,8 +121,7 @@ function SearchBar() {
   // Calculate the total number of travellers
   const totalTravellers =
     travellers.adult + travellers.child + travellers.infant;
-  const travellerText =
-    totalTravellers === 1 ? "traveller" : "travellers";
+  const travellerText = totalTravellers === 1 ? "traveller" : "travellers";
 
   // travellers handling section end
 
@@ -174,29 +177,53 @@ function SearchBar() {
 
   const startDrag = (e) => {
     setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft); // Get starting X position
-    setScrollLeft(carouselRef.current.scrollLeft); // Get initial scroll position
-    carouselRef.current.style.cursor = "grabbing"; // Change cursor to grabbing
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+    carouselRef.current.style.cursor = "grabbing";
   };
 
-  // Stop dragging
   const stopDrag = () => {
     setIsDragging(false);
-    carouselRef.current.style.cursor = "grab"; // Set cursor back to normal
+    carouselRef.current.style.cursor = "grab";
   };
 
-  // Handle the dragging movement
   const onDrag = (e) => {
-    if (!isDragging) return; // Only drag when mouse is held down
+    if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft; // Current X position
-    const walk = (x - startX) * 2; // The distance dragged
-    carouselRef.current.scrollLeft = scrollLeft - walk; // Scroll the carousel
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
   };
-
-  // carousal slider end
 
   const [time, setTime] = useState("10:00");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const fromValue = selectedAirport;
+    const toValue = selectedAirport1;
+
+    
+    console.log(tripType);
+    let generatedUrl = "";
+  
+    if(tripType === "Multiple City"){
+       generatedUrl = `/multicity`
+    } 
+
+   else if(tripType === "Round Trip") {
+      generatedUrl = `/doubleSearchFlight`
+    }
+   
+    else{
+      generatedUrl = `/FlightTicketDateWiseNew/${tripType}/${travelClass}/${encodeURIComponent(fromValue.value)}/${encodeURIComponent(fromValue.label.props.children[1])}/${encodeURIComponent(toValue.value)}/${encodeURIComponent(toValue.label.props.children[1])}/${selectedDate.toISOString()}/${selectedReturndate.toISOString()}/${totalTravellers}/${travellers.adult}/${travellers.child}/${travellers.infant}`;
+    } 
+ 
+
+
+    console.log(generatedUrl); 
+    navigate(generatedUrl);
+  };
 
   return (
     <div>
@@ -366,6 +393,7 @@ function SearchBar() {
           <form
             className={activeService === "flight" ? "form_show" : "form_hidden"}
             onClick={() => handleClick("flight")}
+            onSubmit={handleSubmit}
           >
             <div className="flight_data">
               <div className="radio_buttons">
@@ -375,15 +403,29 @@ function SearchBar() {
                     name="trip_type"
                     value="One Way"
                     defaultChecked
+                    checked={tripType === "One Way"}
+                    onChange={(e) => setTripType(e.target.value)}
                   />
                   One Way
                 </label>
                 <label>
-                  <input type="radio" name="trip_type" value="Round Trip" />
+                  <input
+                    type="radio"
+                    name="trip_type"
+                    value="Round Trip"
+                    checked={tripType === "Round Trip"}
+                    onChange={(e) => setTripType(e.target.value)}
+                  />
                   Round Trip
                 </label>
                 <label>
-                  <input type="radio" name="trip_type" value="Multiple City" />
+                  <input
+                    type="radio"
+                    name="trip_type"
+                    value="Multiple City"
+                    checked={tripType === "Multiple City"}
+                    onChange={(e) => setTripType(e.target.value)}
+                  />
                   Multiple City
                 </label>
               </div>
@@ -395,6 +437,8 @@ function SearchBar() {
                       name="traevel_class"
                       value="Economy"
                       defaultChecked
+                      checked={travelClass === "Economy"}
+                      onChange={(e) => setTravelClass(e.target.value)}
                     />
                     <span>Economy</span>
                   </label>
@@ -403,11 +447,19 @@ function SearchBar() {
                       type="radio"
                       name="traevel_class"
                       value="Premier Economy"
+                      checked={travelClass === "Premier Economy"}
+                      onChange={(e) => setTravelClass(e.target.value)}
                     />
                     <span>Premier Economy</span>
                   </label>
                   <label>
-                    <input type="radio" name="traevel_class" value="Business" />
+                    <input
+                      type="radio"
+                      name="traevel_class"
+                      value="Business"
+                      checked={travelClass === "Business"}
+                      onChange={(e) => setTravelClass(e.target.value)}
+                    />
                     <span>Business</span>
                   </label>
                 </div>
@@ -513,7 +565,8 @@ function SearchBar() {
                   </label>
                   <label>
                     <p>Total Travellers:</p>
-                    <div className="travellers_total"
+                    <div
+                      className="travellers_total"
                       onClick={() => handleSave("open")}
                     >
                       {/* Display the number in larger font */}
@@ -624,11 +677,23 @@ function SearchBar() {
               <div className="radio_buttons">
                 <h4>Types of fair :</h4>
                 <label>
-                  <input type="radio" name="person_type" value="Regular" />
+                  <input
+                    type="radio"
+                    name="person_type"
+                    value="Regular"
+                    checked={personType === "Regular"}
+                    onChange={(e) => setPersonType(e.target.value)}
+                  />
                   Regular
                 </label>
                 <label>
-                  <input type="radio" name="person_type" value="Student" />
+                  <input
+                    type="radio"
+                    name="person_type"
+                    value="Student"
+                    checked={personType === "Student"}
+                    onChange={(e) => setPersonType(e.target.value)}
+                  />
                   Student
                 </label>
                 <label>
@@ -636,6 +701,8 @@ function SearchBar() {
                     type="radio"
                     name="person_type"
                     value="Senior Citizen"
+                    checked={personType === "Senior Citizen"}
+                    onChange={(e) => setPersonType(e.target.value)}
                   />
                   Senior Citizen
                 </label>

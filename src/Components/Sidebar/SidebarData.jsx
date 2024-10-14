@@ -31,8 +31,8 @@ const accordions = [
    { name: "Make Booking", route: "FlightTicketDateWiseNew" },
    { name: "Transaction Log", route: "FlightLogs" },
    { name: "Reports", route: "" },
-   { name: "Markup Commission", route: "" },
-   { name: "Cancellation Charges", route: "" },
+   { name: "Markup Commission", route: "flightmarkup" },
+   { name: "Cancellation Charges", route: "flightcancellation" },
   ],
  },
  {

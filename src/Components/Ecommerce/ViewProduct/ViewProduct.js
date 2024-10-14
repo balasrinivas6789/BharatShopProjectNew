@@ -13,35 +13,35 @@ const ViewProduct = () => {
   return (
     <div className="bg-[#18213B] p-4">
       <div className="flex flex-row justify-between">
-        <div className="flex gap-4">
-          <div className="flex flex-col gap-[7px]">
+        <div className="flex w-[60%] gap-4">
+          <div className="flex w-[20%] flex-col gap-[7px] ">
             <img
-              className="w-[140px] rounded  h-[140px] cursor-pointer"
+              className="w-[100%] rounded  h-[140px] cursor-pointer"
               src={first}
               alt="first"
               onMouseEnter={() => setPreviewImage(first)}
             />
             <img
-              className="w-[140px] rounded h-[140px] cursor-pointer"
+              className="w-[100%] rounded h-[140px] cursor-pointer"
               src={second}
               alt="second"
               onMouseEnter={() => setPreviewImage(second)}
             />
             <img
-              className="w-[140px] rounded h-[140px] cursor-pointer"
+              className="w-[100%] rounded h-[140px] cursor-pointer"
               src={third}
               alt="third"
               onMouseEnter={() => setPreviewImage(third)}
             />
             <img
-              className="w-[140px] rounded h-[140px] cursor-pointer"
+              className="w-[100%] rounded h-[140px] cursor-pointer"
               src={fourth}
               alt="fourth"
               onMouseEnter={() => setPreviewImage(fourth)}
             />
           </div>
 
-          <div className="flex items-center relative justify-center w-[710px] h-[581px]">
+          <div className="flex w-[80%] items-center relative justify-center  h-[581px]">
             <img
               className="w-full h-full object-cover"
               src={previewImage}
@@ -59,7 +59,7 @@ const ViewProduct = () => {
           </div>
         </div>
 
-        <div className="text-white ps-4">
+        <div className="text-white w-[40%] ps-4">
           <p className="font-semibold text-[24px]">
             Apple AirPods Pro with MagSafe Case (USB-C) Bluetooth (White, True
             Wireless)

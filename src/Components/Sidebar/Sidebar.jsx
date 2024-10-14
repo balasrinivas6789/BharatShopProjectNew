@@ -12,7 +12,7 @@ const Sidebar = ({ sidebarToggle }) => {
   };
 
   return (
-    <div className="sidebar w-[16.666667%] fixed scrollbar-hidden overflow-y-auto">
+    <div className="sidebar w-[18.88888888888889%] fixed scrollbar-hidden overflow-y-auto">
       <div className="pb-[7rem]">
         <div className="m-3">
           <h2 id="accordion-collapse-heading-0">
