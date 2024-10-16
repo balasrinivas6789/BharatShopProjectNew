@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { IoSearch } from "react-icons/io5";
-import TransactionTable from "./TransactionTable";
+import TransactionTable from "../MobileRecharges/TransactionTable";
 
-const TransactionLog = () => {
+const RechargeTransactionsLog = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [status, setStatus] = useState(""); // Keep track of the selected status filter
+  const [status, setStatus] = useState("");
 
   const handleApplyFilters = () => {
     console.log({ startDate, endDate, status });
   };
-
   return (
     <div className="w-[94.52%]  mt-[44px] mx-auto text-black ">
       <div className="searchContainer rounded-[4px] mb-[8px] p-[4px] w-[28.62%] h-[32px] flex flex-row items-center border border-black bg-white overflow-hidden">
@@ -64,16 +63,15 @@ const TransactionLog = () => {
         <div className="ApplyFilters">
           <button
             onClick={handleApplyFilters}
-            className="text-white font-sans text-[24px] font-semibold px-[16px] py-[12px] rounded-[4px] bg-[#7D9DF9]"
+            className=" text-white font-sans text-[24px] font-semibold px-[16px] py-[12px] rounded-[4px] bg-[#7D9DF9] "
           >
             Apply Filters
           </button>
         </div>
       </div>
-      {/* Pass the selected status as a prop to TransactionTable */}
       <TransactionTable filterStatus={status} />
     </div>
   );
 };
 
-export default TransactionLog;
+export default RechargeTransactionsLog;

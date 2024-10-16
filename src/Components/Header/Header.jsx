@@ -6,8 +6,10 @@ import { LuMail } from "react-icons/lu";
 import { LuUser2 } from "react-icons/lu";
 
 import { FaRegBell } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ sidebarToggle, setSidebarToggle }) => {
+  const navigate = useNavigate()
   return (
 
     <header className="sticky top-0 z-30 flex items-center justify-between p-3 pt-1 pb-1 bg-white shadow-md">
@@ -65,8 +67,8 @@ const Header = ({ sidebarToggle, setSidebarToggle }) => {
         </div>
       </div>
 
-      <div className="w-[36px] h-[36px] flex bg-[#18479e] justify-center text-white items-center rounded-full">
-        <LuUser2 size={26} />
+      <div  className="w-[36px] h-[36px] flex bg-[#18479e] justify-center text-white items-center rounded-full">
+        <LuUser2 onClick={()=>navigate('/login')} size={26} />
       </div>
     </header>
   );

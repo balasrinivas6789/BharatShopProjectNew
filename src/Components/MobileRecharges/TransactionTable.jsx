@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TransactionTable = () => {
+const TransactionTable = ({ filterStatus }) => {
   const [entriesPerPage, setEntriesPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -71,11 +71,16 @@ const TransactionTable = () => {
     },
   ];
 
-  // Calculate total pages
-  const totalPages = Math.ceil(transactions.length / entriesPerPage);
+  const filteredTransactions = transactions.filter((transaction) => {
+    if (filterStatus === "all" || filterStatus === "") return true; // Show all transactions
+    return transaction.status.includes(filterStatus);
+  });
+
+  // Calculate total pages for filtered transactions
+  const totalPages = Math.ceil(filteredTransactions.length / entriesPerPage);
 
   // Get the current entries for the current page
-  const currentEntries = transactions.slice(
+  const currentEntries = filteredTransactions.slice(
     (currentPage - 1) * entriesPerPage,
     currentPage * entriesPerPage
   );

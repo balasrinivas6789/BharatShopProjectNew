@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AgentsInputs from "./AgentsInputs";
 import CryptoJS from "crypto-js";
 import { statesAndDistricts } from "./StatesDistrictsData";
+import { useNavigate } from "react-router-dom";
 
 const CreateAgentAccount = () => {
   const [formValues, setFormValues] = useState({
@@ -40,20 +41,13 @@ const CreateAgentAccount = () => {
     branchName: "",
     ifscCode: "",
   });
+  const navigate = useNavigate()
 
+  
   const [districts, setDistricts] = useState([]);
   const [error, setError] = useState("");
-
-  const generateSecretKey = (key, timestamp) => {
-    const base64Key = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Utf8.parse(key)
-    );
-
-    const signature = CryptoJS.HmacSHA256(timestamp.toString(), base64Key);
-
-    return CryptoJS.enc.Base64.stringify(signature);
-  };
-
+ const [message,setMessage] = useState("");
+ 
   const inputsConfig = [
     {
       name: "distributor",
@@ -65,7 +59,7 @@ const CreateAgentAccount = () => {
       name: "category",
       label: "Category",
       inputType: "dropdown",
-      options: ["Category 1", "Category 2", "Category 3"],
+      options: ["superAdmin", "Admin", "Distributor"],
     },
     { name: "agentName", label: "Agency/Agent/Admin name" },
     { name: "firstName", label: "First Name" },
@@ -181,17 +175,13 @@ const CreateAgentAccount = () => {
     }));
   };
 
-  const handleCreateAgent = (e) => {
+  const handleCreateAgent = async(e) => {
     e.preventDefault();
     if (formValues.password !== formValues.confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-    const developerKey = "36ecd45e6997cb888060391f3e4f3963";
-    const key = "22abe4d7-5c20-4a74-bf63-30066251656b";
-
-    const secretKey = generateSecretKey(key, Date.now());
-
+   
     const residenceAddress = {
       line: formValues.address,
       city: formValues.city,
@@ -202,38 +192,64 @@ const CreateAgentAccount = () => {
     };
     const formattedResidenceAddress = JSON.stringify(residenceAddress);
 
+
+
+    const formData = new URLSearchParams();
+    formData.append("agent_pan_number", formValues.pancardNumber);
+    formData.append("agent_first_name", formValues.firstName);
+    formData.append("agent_middle_name", formValues.middleName);
+    formData.append("agent_last_name", formValues.lastName);
+    formData.append("agent_dob", formValues.dob);
+    formData.append("agent_mobile", formValues.mobile);
+    formData.append("agent_role", formValues.category);
+    formData.append("agent_company_name", formValues.companyName);
+    formData.append("agent_full_name", `${formValues.firstName} ${formValues.middleName} ${formValues.lastName}`);
+    formData.append("agent_login_email", formValues.emailId);
+    formData.append("agent_login_password", formValues.password);
+    formData.append("agent_country", formValues.country);
+    formData.append("agent_state", formValues.state);
+    formData.append("agent_city", formValues.city);
+    formData.append("agent_dist", formValues.district);
+    formData.append("agent_pincode", formValues.pincode);
+    formData.append("agent_address", formValues.address);
+    formData.append("agent_landline", formValues.landlineNumber);
+    formData.append("agent_tc", "yes");
+
+
+
     try {
       const options = {
-        method: "PUT",
+        method: "POST",
         headers: {
           accept: "application/json",
-          "content-type": "application/x-www-form-urlencoded",
-          developer_key: developerKey,
-          "secret-key": secretKey,
-          "secret-key-timestamp": Date.now().toString(),
         },
-        body: new URLSearchParams({
-          initiator_id: "9704432222",
-          pan_number: formValues.pancardNumber,
-          mobile: formValues.mobile,
-          first_name: formValues.firstName,
-          middle_name: formValues.middleName,
-          last_name: formValues.lastName,
-          email: formValues.emailId,
-          residence_address: formattedResidenceAddress,
-          dob: formValues.dob,
-          shop_name: formValues.companyName,
-        }),
+        body: formData,
       };
+    
+      const response = await fetch("http://192.168.1.17:3000/user/register", options);
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
 
-      fetch("https://api.eko.in:25002/ekoicici/v1/user/onboard", options)
-        .then((response) => response.json())
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err));
+        if(data.success === true){
+          navigate("/otpForCreateAgent"); 
+        } else {
+          setMessage(data.message)
+        }
+
+      
+
+
+
+      } else {
+        const errorData = await response.json();
+        console.error("Error:", errorData); // Log the error response
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Fetch error:", error); // Log any fetch errors
     }
-  };
+  }    
 
   return (
     <div className="w-[90%] h-[2222px] mt-[30px] mb-[87px] m-auto rounded-[12px] bg-white">
@@ -328,6 +344,11 @@ const CreateAgentAccount = () => {
       {error && (
         <p className="text-[#FF4545] ml-[58px] mb-[86px] font-open-sans text-[16px] font-normal leading-normal">
           {error}
+        </p>
+      )}
+         {message && (
+        <p className="text-[#FF4545] ml-[58px] mb-[86px] font-open-sans text-[16px] font-normal leading-normal">
+          {message}
         </p>
       )}
       <div className="gap-[23px] flex justify-end  mb-[56px]">
