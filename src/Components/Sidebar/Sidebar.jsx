@@ -21,7 +21,6 @@ const Sidebar = ({ sidebarToggle }) => {
               onClick={() => navigate('/')}
               className="w-full p-3 font-medium text-white rounded bg-blue-300 flex justify-normal"
             >
-              {/* SVG Icon */}
               <svg
                 width="24"
                 height="24"

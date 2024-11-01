@@ -6,9 +6,19 @@
   top: 80px;
   left: -10px;
   width: 250px;
-  z-index: 9999;
+  z-index: 100;
   /* padding: 0px 15px; */
 }
+
+.pop_notificationwallet {
+  position: absolute;
+  top: 80px;
+  left: -300px;
+  width: 250px;
+  z-index: 100;
+}
+
+
 .loading_notification {
   background-color: #ff6d00;
   padding: 8px 12px;
@@ -26,9 +36,22 @@
 .notifications li {
   padding: 8px 0px;
 }
+
+
+.notificationswallet {
+  /* background-color: white; */
+  background-color: white;
+
+}
+.notificationswallet {
+    max-height: 60dvh;
+    overflow-y: scroll;
+}
+
+
 .message{
     display: flex;
-    gap: 5px;
+    gap: 1px;
     justify-content: space-around;
 }
 .message_icon{
@@ -70,6 +93,17 @@
   border-bottom: 15px solid #ff6d00;
   margin-left: 15px;
 }
+
+.triangle_wallet_top {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid #ff6d00;
+  margin-left: 310px;
+}
+
+
 .hide{
     display: none;
 }

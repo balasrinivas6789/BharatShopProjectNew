@@ -133,7 +133,7 @@ const MultiCity = () => {
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -200, // Adjust scroll amount as needed
+        left: -200, 
         behavior: "smooth",
       });
     }
@@ -142,7 +142,7 @@ const MultiCity = () => {
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 200, // Adjust scroll amount as needed
+        left: 200, 
         behavior: "smooth",
       });
     }

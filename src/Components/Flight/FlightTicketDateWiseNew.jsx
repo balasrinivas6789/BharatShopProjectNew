@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import airWayPng from "../../images/FlightImages/airWays.png";
 import flightDirectionPng from "../../images/FlightImages/Flight way.png";
 import cabbinPng from "../../images/FlightImages/Cabin.png";
@@ -33,6 +33,26 @@ const FlightTicketDateWiseNew = () => {
     },
   ];
 
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -200,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: 200,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const {
     triptype,
     travelclass,
@@ -48,25 +68,10 @@ const FlightTicketDateWiseNew = () => {
     infant,
   } = useParams();
 
-  console.log(
-    triptype,
-    travelclass,
-    fromvalue,
-    fromlabel,
-    tovalue,
-    tolabel,
-    selecteddate,
-    selectedreturndate,
-    totaltravellers,
-    adult,
-    child,
-    infant
-  );
 
   let extractedFromDateDetails = null;
   if (selecteddate != undefined) {
-    console.log("69");
-
+ 
     extractedFromDateDetails = new Date(selecteddate)
       .toISOString()
       .split("T")[0];
@@ -77,7 +82,6 @@ const FlightTicketDateWiseNew = () => {
 
   let extractedToDateDetails = null;
   if (selectedreturndate != undefined) {
-    console.log("80");
 
     extractedToDateDetails = new Date(selectedreturndate)
       .toISOString()
@@ -122,8 +126,7 @@ const FlightTicketDateWiseNew = () => {
   const [activeTab, setActiveTab] = useState("Flight Details");
   const [showMoreInfo, setShowInfo] = useState(false);
   const navigate = useNavigate();
-  console.log(airports[0]);
-  
+ 
   const [selectedAirport, setSelectedAirport] = useState(airports[0]);
   const [selectedAirport1, setSelectedAirport1] = useState(airports[1]);
   const [selectedReturndate, setselectedReturndate] = useState(new Date());
@@ -261,16 +264,16 @@ const FlightTicketDateWiseNew = () => {
                         control: (provided) => ({
                           ...provided,
                           width: "100%",
-                          borderColor: "transparent", // Optional: To remove border
-                          boxShadow: "none", // Optional: To remove shadow
+                          borderColor: "transparent", 
+                          boxShadow: "none", 
                         }),
                         dropdownIndicator: (provided) => ({
                           ...provided,
-                          display: "none", // Hides the dropdown arrow
+                          display: "none", 
                         }),
                         indicatorSeparator: (provided) => ({
                           ...provided,
-                          display: "none", // Optional: Hides the separator line
+                          display: "none",
                         }),
                       }}
                     />
@@ -328,7 +331,7 @@ const FlightTicketDateWiseNew = () => {
                     >
                       <p>
                         {totalTravellers || 1}
-                        <span>{travellerText || 1 }</span>
+                        <span>{travellerText || 1}</span>
                       </p>
                     </div>
                   </label>
@@ -449,9 +452,32 @@ const FlightTicketDateWiseNew = () => {
             </div>
           </div>
           <div className="flex flex-col gap-4 w-[80%]">
-            <div className="bg-white rounded-lg p-[11px]">
-              <p>Thu, Aug 23</p>
-              <p>5,728</p>
+            <div className="relative w-full ">
+              <button
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-lg"
+                onClick={scrollLeft}
+              >
+                {"<"}
+              </button>
+
+              <div
+                ref={scrollRef}
+                className="bg-white px-[33px] flex flex-row overflow-x-auto scrollbar-hidden gap-4 rounded-lg p-[11px] scrollbar-hide"
+              >
+                {Array.from({ length: 20 }).map((_, index) => (
+                  <div key={index} className="min-w-[100px]">
+                    <p>Thu, Aug 23</p>
+                    <p>5,728</p>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-lg"
+                onClick={scrollRight}
+              >
+                {">"}
+              </button>
             </div>
             <div className="bg-[#395183] p-[47px] rounded-lg">
               <div className=" bg-white mb-[10px] mt-[10px] rounded-[12px]">

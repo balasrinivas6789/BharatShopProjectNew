@@ -13,7 +13,7 @@ const BankingServices = () => {
       <div className=" flex h-[109px] justify-between items-center self-stretch">
         <div className="text-center">
           <img className="h-[86px] self-stretch" src={aeps} alt="aepsImage" />
-          <p class="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
+          <p className="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
             AEPS
           </p>
         </div>
@@ -23,13 +23,13 @@ const BankingServices = () => {
             src={aadhar}
             alt="aadharImage"
           />
-          <p class="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
+          <p className="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
             Aadhar Pay
           </p>
         </div>
         <div className="text-center">
           <img className="h-[86px] self-stretch" src={dmt} alt="dmtImage" />
-          <p class="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
+          <p className="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
             DMT
           </p>
         </div>
@@ -39,7 +39,7 @@ const BankingServices = () => {
             src={microatm}
             alt="microatmImage"
           />
-          <p class="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
+          <p className="text-center text-white font-open-sans text-[14px] font-semibold leading-none mt-[8px]">
             Micro ATM
           </p>
         </div>

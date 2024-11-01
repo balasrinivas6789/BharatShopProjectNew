@@ -1,6 +1,6 @@
 function InfrantForm({ id, removeInfrant }) {
     return (
-      <div className="mt-4 px-[20px] rounded-xl w-[684px] h-[232px] overflow-hidden shadow-lg bg-[#f4f4f4] text-black">
+      <div className="mt-4 px-[20px] rounded-xl w-[100%] h-[232px] overflow-hidden shadow-lg bg-[#f4f4f4] text-black">
         <div className="flex justify-between px-6 py-4">
           <div className="font-bold text-xl mb-2">Infrant {id}</div>
           <div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import airWayPng from "../../../images/FlightImages/airWays.png";
 import flightDirectionPng from "../../../images/FlightImages/Flight way.png";
 import cabbinPng from "../../../images/FlightImages/Cabin.png";
@@ -51,6 +51,26 @@ const DoubleSearchFlight = () => {
   const [selectedAirport, setSelectedAirport] = useState(airports[0]);
   const [selectedAirport1, setSelectedAirport1] = useState(airports[1]);
   const [selectedReturndate, setselectedReturndate] = useState(new Date());
+
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -200,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: 200,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const handleClick = (divId) => {
     setActiveService(divId);
@@ -373,9 +393,32 @@ const DoubleSearchFlight = () => {
               </div>
             </div>
             <div className="flex flex-col gap-4 w-[80%]">
-              <div className="bg-white rounded-lg p-[11px]">
-                <p>Thu, Aug 23</p>
-                <p>5,728</p>
+              <div className="relative w-full ">
+                <button
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-lg"
+                  onClick={scrollLeft}
+                >
+                  {"<"}
+                </button>
+
+                <div
+                  ref={scrollRef}
+                  className="bg-white px-[33px] flex flex-row overflow-x-auto scrollbar-hidden gap-4 rounded-lg p-[11px] scrollbar-hide"
+                >
+                  {Array.from({ length: 20 }).map((_, index) => (
+                    <div key={index} className="min-w-[100px]">
+                      <p>Thu, Aug 23</p>
+                      <p>5,728</p>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-lg"
+                  onClick={scrollRight}
+                >
+                  {">"}
+                </button>
               </div>
               <div className="bg-[#395183] p-[10px] xl:p-[23px] flex flex-wrap gap-3 rounded-lg">
                 {Array(10)
@@ -571,7 +614,10 @@ const DoubleSearchFlight = () => {
                   </p>
                 </div>
                 <div className="flex justify-between">
-                  <button onClick={navigate('/doubleFlightBooking')} className="bg-[#135FA7] rounded-lg text-white px-[12px] py-[8px]">
+                  <button
+                    onClick={() => navigate("/doubleFlightBooking")}
+                    className="bg-[#135FA7] rounded-lg text-white px-[12px] py-[8px]"
+                  >
                     Book ticket
                   </button>
                   <MdOutlineKeyboardArrowDown

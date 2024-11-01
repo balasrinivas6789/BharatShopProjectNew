@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import "./SearchBar.css";
 import iccon from "../../images/iccon.jpg";
 import { useNavigate } from "react-router-dom";
-import { useAsyncDebounce } from "react-table/dist/react-table.development";
+
 
 function SearchBar() {
   const airports = [
@@ -202,9 +202,7 @@ function SearchBar() {
 
     const fromValue = selectedAirport;
     const toValue = selectedAirport1;
-
     
-    console.log(tripType);
     let generatedUrl = "";
   
     if(tripType === "Multiple City"){
@@ -219,9 +217,6 @@ function SearchBar() {
       generatedUrl = `/FlightTicketDateWiseNew/${tripType}/${travelClass}/${encodeURIComponent(fromValue.value)}/${encodeURIComponent(fromValue.label.props.children[1])}/${encodeURIComponent(toValue.value)}/${encodeURIComponent(toValue.label.props.children[1])}/${selectedDate.toISOString()}/${selectedReturndate.toISOString()}/${totalTravellers}/${travellers.adult}/${travellers.child}/${travellers.infant}`;
     } 
  
-
-
-    console.log(generatedUrl); 
     navigate(generatedUrl);
   };
 
